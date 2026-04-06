@@ -1,11 +1,8 @@
-"use client";
-
-
 const reviews = [
   {
     name: "Sarah M.",
     rating: 5,
-    text: "Mike was great to work with! Came through in a pinch when our furnace stopped working with below-zero temperatures outside. He responded fast and had us back up and running the same day. Would definitely recommend to anyone in need of HVAC repair.",
+    text: "Mike was great to work with! Came through in a pinch when our furnace stopped working with below-zero temperatures outside. He responded fast and had us back up and running the same day. Would definitely recommend.",
     location: "Watertown, SD",
   },
   {
@@ -41,7 +38,7 @@ const reviews = [
   {
     name: "Michelle H.",
     rating: 5,
-    text: "Mike did an amazing job! He is personable, easy to work with, and made great recommendations when we needed a new system. We couldn't be happier with the result.",
+    text: "Mike did an amazing job! He is personable, easy to work with, and made great recommendations when we needed a new system. We couldn't be happier.",
     location: "Watertown, SD",
   },
   {
@@ -56,7 +53,7 @@ function StarRating({ count }: { count: number }) {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: count }).map((_, i) => (
-        <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#f97316" className="flex-shrink-0">
+        <svg key={i} width="12" height="12" viewBox="0 0 24 24" fill="#f97316">
           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
         </svg>
       ))}
@@ -64,21 +61,34 @@ function StarRating({ count }: { count: number }) {
   );
 }
 
-function ReviewCard({ review }: { review: typeof reviews[0] }) {
+function ReviewCard({ review }: { review: (typeof reviews)[0] }) {
   return (
     <div
-      className="flex-shrink-0 w-80 bg-[#0f1623] border border-white/5 rounded-2xl p-6 mx-3"
-      style={{ boxShadow: "0 4px 30px rgba(0,0,0,0.3)" }}
+      className="flex-shrink-0 w-80 p-6 mx-3 flex flex-col gap-4"
+      style={{
+        background: "#ffffff",
+        border: "1px solid #e2e2e2",
+        borderRadius: "2px",
+      }}
     >
       <StarRating count={review.rating} />
-      <p className="text-slate-300 text-sm leading-relaxed mt-3 mb-5">&ldquo;{review.text}&rdquo;</p>
-      <div className="flex items-center gap-3">
-        <div className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400 text-sm font-bold">
+      <p className="font-satoshi text-sm leading-relaxed flex-1" style={{ color: "#838282" }}>
+        &ldquo;{review.text}&rdquo;
+      </p>
+      <div className="flex items-center gap-3 pt-2" style={{ borderTop: "1px solid #f2f2f2" }}>
+        <div
+          className="w-7 h-7 rounded-full flex items-center justify-center font-clash font-bold text-xs"
+          style={{ background: "#111111", color: "#ffffff" }}
+        >
           {review.name[0]}
         </div>
         <div>
-          <div className="text-white text-sm font-semibold">{review.name}</div>
-          <div className="text-slate-500 text-xs">{review.location}</div>
+          <div className="font-satoshi text-xs font-medium" style={{ color: "#111111" }}>
+            {review.name}
+          </div>
+          <div className="font-satoshi text-[10px] tracking-wide" style={{ color: "#b6b5b5" }}>
+            {review.location}
+          </div>
         </div>
       </div>
     </div>
@@ -86,47 +96,63 @@ function ReviewCard({ review }: { review: typeof reviews[0] }) {
 }
 
 export default function ReviewMarquee() {
-  // Triple the reviews so the loop is seamless even at faster speed
   const tripled = [...reviews, ...reviews, ...reviews];
 
   return (
-    <section id="reviews" className="py-16 sm:py-24 overflow-hidden bg-[#060a11]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-12">
-        <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 rounded-full px-4 py-1.5 mb-6">
-          <span className="text-orange-300 text-sm font-medium tracking-wide">Customer Reviews</span>
+    <section
+      id="reviews"
+      className="overflow-hidden"
+      style={{ background: "#f2f2f2", borderTop: "1px solid #e2e2e2", paddingTop: "80px", paddingBottom: "80px" }}
+    >
+      {/* Header */}
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 mb-12">
+        <div className="flex items-center gap-3 mb-5">
+          <div className="w-6 h-px" style={{ background: "#f97316" }} />
+          <span className="font-satoshi text-[11px] tracking-[0.2em] uppercase text-[#f97316]">
+            Customer Reviews
+          </span>
         </div>
         <div className="flex flex-col sm:flex-row sm:items-end gap-4 justify-between">
-          <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
-            What Watertown<br />Customers Say
+          <h2
+            className="font-clash font-bold leading-none"
+            style={{
+              fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
+              letterSpacing: "-0.04em",
+              color: "#111111",
+            }}
+          >
+            What Watertown
+            <br />
+            Customers Say
           </h2>
           <div className="flex items-center gap-2">
-            <div className="flex">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <svg key={i} width="20" height="20" viewBox="0 0 24 24" fill="#f97316">
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                </svg>
-              ))}
-            </div>
-            <span className="text-white font-bold">5.0</span>
-            <span className="text-slate-400 text-sm">/ 5.0 average</span>
+            {[1, 2, 3, 4, 5].map((i) => (
+              <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill="#f97316">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+            ))}
+            <span className="font-clash font-bold text-lg ml-1" style={{ color: "#111111" }}>
+              5.0
+            </span>
+            <span className="font-satoshi text-sm" style={{ color: "#b6b5b5" }}>
+              / 5.0
+            </span>
           </div>
         </div>
       </div>
 
-      {/* No hover pause — marquee runs continuously */}
+      {/* Marquee — runs continuously, no hover pause */}
       <div className="relative">
-        {/* Left fade */}
+        {/* Edge fades */}
         <div
-          className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to right, #060a11, transparent)" }}
+          className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
+          style={{ background: "linear-gradient(to right, #f2f2f2, transparent)" }}
         />
-        {/* Right fade */}
         <div
-          className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to left, #060a11, transparent)" }}
+          className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
+          style={{ background: "linear-gradient(to left, #f2f2f2, transparent)" }}
         />
 
-        {/* animate-marquee-fast defined in globals.css — 22s, no pause */}
         <div className="flex animate-marquee-fast">
           {tripled.map((review, i) => (
             <ReviewCard key={`${review.name}-${i}`} review={review} />

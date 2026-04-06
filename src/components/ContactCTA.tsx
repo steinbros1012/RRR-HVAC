@@ -17,120 +17,225 @@ export default function ContactCTA() {
   return (
     <section
       id="contact"
-      className="py-24 sm:py-32 relative overflow-hidden"
-      style={{
-        background: "radial-gradient(ellipse 100% 80% at 50% 100%, #1a2d4a 0%, #080c14 60%)",
-      }}
+      className="py-20 sm:py-28"
+      style={{ background: "#ffffff", borderTop: "1px solid #e2e2e2" }}
     >
-      {/* Glow */}
-      <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, rgba(249,115,22,0.07) 0%, transparent 70%)" }}
-      />
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+        {/* Section label */}
+        <div className="flex items-center gap-3 mb-10">
+          <div className="w-6 h-px" style={{ background: "#f97316" }} />
+          <span className="font-satoshi text-[11px] tracking-[0.2em] uppercase text-[#f97316]">
+            Get In Touch
+          </span>
+        </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid md:grid-cols-2 gap-16 items-start">
-          {/* Left */}
+          {/* Left — info */}
           <div>
-            <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 rounded-full px-4 py-1.5 mb-6">
-              <span className="text-orange-300 text-sm font-medium tracking-wide">Get In Touch</span>
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-6">
-              Need HVAC Help<br />in Watertown?
+            <h2
+              className="font-clash font-bold leading-none mb-6"
+              style={{
+                fontSize: "clamp(2.4rem, 5vw, 3.8rem)",
+                letterSpacing: "-0.04em",
+                color: "#111111",
+              }}
+            >
+              Need HVAC Help
+              <br />
+              in Watertown?
             </h2>
-            <p className="text-slate-400 text-lg leading-relaxed mb-8">
-              Call or send a message and Mike will get back to you fast. For emergencies, call directly — we pick up.
+            <p
+              className="font-satoshi text-base leading-relaxed mb-10"
+              style={{ color: "#838282", maxWidth: "400px" }}
+            >
+              Call or send a message and Mike will get back to you fast. For emergencies, call
+              directly — we pick up.
             </p>
 
-            <div className="space-y-5">
+            {/* Contact rows */}
+            <div className="space-y-6" style={{ borderTop: "1px solid #e2e2e2", paddingTop: "28px" }}>
               <a
                 href={`tel:${PHONE.replace(/\D/g, "")}`}
-                className="flex items-center gap-4 group"
+                className="flex items-center gap-5 group"
               >
-                <div className="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center group-hover:bg-orange-500/20 transition-colors">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                <div
+                  className="w-10 h-10 flex items-center justify-center flex-shrink-0 rounded-full transition-colors duration-150 group-hover:bg-[#111111]"
+                  style={{ border: "1px solid #e2e2e2" }}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="group-hover:stroke-white transition-colors duration-150"
+                    stroke="#838282"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                   </svg>
                 </div>
                 <div>
-                  <div className="text-slate-400 text-xs uppercase tracking-wider mb-0.5">Phone</div>
-                  <div className="text-white font-semibold text-lg">{PHONE}</div>
+                  <div
+                    className="font-satoshi text-[10px] tracking-[0.15em] uppercase mb-0.5"
+                    style={{ color: "#b6b5b5" }}
+                  >
+                    Phone
+                  </div>
+                  <div
+                    className="font-clash font-bold text-xl group-hover:text-[#f97316] transition-colors duration-150"
+                    style={{ color: "#111111", letterSpacing: "-0.02em" }}
+                  >
+                    {PHONE}
+                  </div>
                 </div>
               </a>
 
               <a
                 href={`mailto:${EMAIL}`}
-                className="flex items-center gap-4 group"
+                className="flex items-center gap-5 group"
               >
-                <div className="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center group-hover:bg-orange-500/20 transition-colors">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                    <polyline points="22,6 12,13 2,6"/>
+                <div
+                  className="w-10 h-10 flex items-center justify-center flex-shrink-0 rounded-full transition-colors duration-150 group-hover:bg-[#111111]"
+                  style={{ border: "1px solid #e2e2e2" }}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="group-hover:stroke-white transition-colors duration-150"
+                    stroke="#838282"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
                   </svg>
                 </div>
                 <div>
-                  <div className="text-slate-400 text-xs uppercase tracking-wider mb-0.5">Email</div>
-                  <div className="text-white font-semibold">{EMAIL}</div>
+                  <div
+                    className="font-satoshi text-[10px] tracking-[0.15em] uppercase mb-0.5"
+                    style={{ color: "#b6b5b5" }}
+                  >
+                    Email
+                  </div>
+                  <div
+                    className="font-satoshi font-medium text-base group-hover:text-[#f97316] transition-colors duration-150"
+                    style={{ color: "#111111" }}
+                  >
+                    {EMAIL}
+                  </div>
                 </div>
               </a>
 
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                    <circle cx="12" cy="10" r="3"/>
+              <div className="flex items-center gap-5">
+                <div
+                  className="w-10 h-10 flex items-center justify-center flex-shrink-0 rounded-full"
+                  style={{ border: "1px solid #e2e2e2" }}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#838282"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
                   </svg>
                 </div>
                 <div>
-                  <div className="text-slate-400 text-xs uppercase tracking-wider mb-0.5">Service Area</div>
-                  <div className="text-white font-semibold">Watertown, SD & Surrounding Areas</div>
+                  <div
+                    className="font-satoshi text-[10px] tracking-[0.15em] uppercase mb-0.5"
+                    style={{ color: "#b6b5b5" }}
+                  >
+                    Service Area
+                  </div>
+                  <div className="font-satoshi font-medium text-base" style={{ color: "#111111" }}>
+                    Watertown, SD & Surrounding Areas
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right: contact form */}
-          <div className="bg-[#0f1623] border border-white/5 rounded-3xl p-8">
-            <h3 className="text-white font-bold text-xl mb-6">Request Service</h3>
+          {/* Right — form */}
+          <div
+            className="p-8"
+            style={{ background: "#f2f2f2", border: "1px solid #e2e2e2" }}
+          >
+            <h3
+              className="font-clash font-bold text-2xl mb-6"
+              style={{ color: "#111111", letterSpacing: "-0.03em" }}
+            >
+              Request Service
+            </h3>
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="text-slate-400 text-sm mb-2 block">First Name</label>
-                  <input
-                    type="text"
-                    required
-                    className="w-full bg-[#080c14] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-orange-500/50 transition-colors"
-                    placeholder="Jane"
-                  />
-                </div>
-                <div>
-                  <label className="text-slate-400 text-sm mb-2 block">Last Name</label>
-                  <input
-                    type="text"
-                    required
-                    className="w-full bg-[#080c14] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-orange-500/50 transition-colors"
-                    placeholder="Smith"
-                  />
-                </div>
+                {["First Name", "Last Name"].map((label) => (
+                  <div key={label}>
+                    <label
+                      className="font-satoshi text-[11px] tracking-[0.1em] uppercase mb-2 block"
+                      style={{ color: "#838282" }}
+                    >
+                      {label}
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      className="w-full px-4 py-3 font-satoshi text-sm transition-colors duration-150 outline-none"
+                      style={{
+                        background: "#ffffff",
+                        border: "1px solid #e2e2e2",
+                        color: "#111111",
+                      }}
+                      placeholder={label === "First Name" ? "Jane" : "Smith"}
+                      onFocus={(e) => (e.currentTarget.style.borderColor = "#111111")}
+                      onBlur={(e) => (e.currentTarget.style.borderColor = "#e2e2e2")}
+                    />
+                  </div>
+                ))}
               </div>
 
               <div>
-                <label className="text-slate-400 text-sm mb-2 block">Phone Number</label>
+                <label
+                  className="font-satoshi text-[11px] tracking-[0.1em] uppercase mb-2 block"
+                  style={{ color: "#838282" }}
+                >
+                  Phone Number
+                </label>
                 <input
                   type="tel"
                   required
-                  className="w-full bg-[#080c14] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-orange-500/50 transition-colors"
+                  className="w-full px-4 py-3 font-satoshi text-sm transition-colors duration-150 outline-none"
+                  style={{ background: "#ffffff", border: "1px solid #e2e2e2", color: "#111111" }}
                   placeholder="(605) 555-0100"
+                  onFocus={(e) => (e.currentTarget.style.borderColor = "#111111")}
+                  onBlur={(e) => (e.currentTarget.style.borderColor = "#e2e2e2")}
                 />
               </div>
 
               <div>
-                <label className="text-slate-400 text-sm mb-2 block">Service Needed</label>
+                <label
+                  className="font-satoshi text-[11px] tracking-[0.1em] uppercase mb-2 block"
+                  style={{ color: "#838282" }}
+                >
+                  Service Needed
+                </label>
                 <select
                   required
-                  className="w-full bg-[#080c14] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-orange-500/50 transition-colors"
+                  className="w-full px-4 py-3 font-satoshi text-sm transition-colors duration-150 outline-none"
+                  style={{ background: "#ffffff", border: "1px solid #e2e2e2", color: "#111111" }}
+                  onFocus={(e) => (e.currentTarget.style.borderColor = "#111111")}
+                  onBlur={(e) => (e.currentTarget.style.borderColor = "#e2e2e2")}
                 >
-                  <option value="" className="text-slate-600">Select a service...</option>
+                  <option value="">Select a service...</option>
                   <option>AC Repair</option>
                   <option>AC Installation</option>
                   <option>Furnace Repair</option>
@@ -144,17 +249,26 @@ export default function ContactCTA() {
               </div>
 
               <div>
-                <label className="text-slate-400 text-sm mb-2 block">Tell Us More</label>
+                <label
+                  className="font-satoshi text-[11px] tracking-[0.1em] uppercase mb-2 block"
+                  style={{ color: "#838282" }}
+                >
+                  Tell Us More
+                </label>
                 <textarea
                   rows={4}
-                  className="w-full bg-[#080c14] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-orange-500/50 transition-colors resize-none"
+                  className="w-full px-4 py-3 font-satoshi text-sm transition-colors duration-150 outline-none resize-none"
+                  style={{ background: "#ffffff", border: "1px solid #e2e2e2", color: "#111111" }}
                   placeholder="Describe the issue or what you need..."
+                  onFocus={(e) => (e.currentTarget.style.borderColor = "#111111")}
+                  onBlur={(e) => (e.currentTarget.style.borderColor = "#e2e2e2")}
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-orange-500 hover:bg-orange-400 text-white font-bold py-4 rounded-xl transition-colors text-sm tracking-wide"
+                className="w-full font-satoshi font-bold text-sm py-4 transition-all duration-150 hover:opacity-90 tracking-wide"
+                style={{ background: "#111111", color: "#ffffff" }}
               >
                 Send Request →
               </button>

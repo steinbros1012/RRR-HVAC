@@ -88,7 +88,7 @@ export default function IntroAnimation() {
         className="absolute top-0 left-0 right-0"
         style={{
           height: "50%",
-          background: "linear-gradient(180deg, #060a12 0%, #0c1828 100%)",
+          background: "#111111",
         }}
       />
 
@@ -98,7 +98,7 @@ export default function IntroAnimation() {
         className="absolute bottom-0 left-0 right-0"
         style={{
           height: "50%",
-          background: "linear-gradient(0deg, #060a12 0%, #0c1828 100%)",
+          background: "#111111",
         }}
       />
 

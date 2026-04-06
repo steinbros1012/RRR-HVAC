@@ -1,19 +1,33 @@
 export default function ProofBar() {
   const stats = [
-    { value: "5★", label: "Average Rating" },
-    { value: "Fast", label: "Same-Day Response" },
-    { value: "Local", label: "Watertown, SD Based" },
-    { value: "All", label: "Makes & Models" },
+    { value: "5.0★", label: "Average Customer Rating" },
+    { value: "Same Day", label: "Emergency Response" },
+    { value: "Watertown", label: "SD — Locally Owned" },
+    { value: "All Systems", label: "Makes & Models Serviced" },
   ];
 
   return (
-    <section className="border-y border-white/5 bg-[#0a1018]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+    <section style={{ background: "#ffffff", borderTop: "1px solid #e2e2e2", borderBottom: "1px solid #e2e2e2" }}>
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 py-5">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px" style={{ background: "#e2e2e2" }}>
           {stats.map((s) => (
-            <div key={s.label} className="flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-3">
-              <div className="text-2xl font-black text-orange-400">{s.value}</div>
-              <div className="text-slate-400 text-sm text-center sm:text-left">{s.label}</div>
+            <div
+              key={s.label}
+              className="flex flex-col gap-0.5 px-6 py-4"
+              style={{ background: "#ffffff" }}
+            >
+              <div
+                className="font-clash font-bold text-xl leading-none"
+                style={{ color: "#111111", letterSpacing: "-0.02em" }}
+              >
+                {s.value}
+              </div>
+              <div
+                className="font-satoshi text-[11px] tracking-wide"
+                style={{ color: "#b6b5b5" }}
+              >
+                {s.label}
+              </div>
             </div>
           ))}
         </div>
