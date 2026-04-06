@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import EchoText from "./EchoText";
 import RolodexText from "./RolodexText";
 
 const PHONE = "(605) 881-5622";
@@ -107,22 +106,20 @@ export default function Hero() {
           style={{ height: "1px", background: "#d1d1d1", transformOrigin: "left center", transform: "scaleX(0)" }}
         />
 
-        {/* Primary headline with echo stack */}
+        {/* Primary headline */}
         <div ref={echoRef} className="opacity-0 mb-8">
-          <EchoText layers={3} offsetPx={1.5}>
-            <h1
-              className="font-clash font-bold leading-none"
-              style={{
-                fontSize: "clamp(3.2rem, 9vw, 8rem)",
-                letterSpacing: "-0.04em",
-                color: "#111111",
-              }}
-            >
-              Fast HVAC Help
-              <br />
-              When You Need It.
-            </h1>
-          </EchoText>
+          <h1
+            className="font-clash font-bold leading-none"
+            style={{
+              fontSize: "clamp(3.2rem, 9vw, 8rem)",
+              letterSpacing: "-0.04em",
+              color: "#111111",
+            }}
+          >
+            Fast HVAC Help
+            <br />
+            When You Need It.
+          </h1>
         </div>
 
         {/* Subheadline row — Rolodex inline + copy */}

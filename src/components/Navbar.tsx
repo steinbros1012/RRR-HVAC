@@ -34,19 +34,14 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 h-full flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-3">
-          {/* Star-of-life badge */}
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-            {/* 3 bars at 0°, 60°, 120° forming 6-pointed star */}
-            <rect x="15.5" y="2" width="5" height="32" rx="2.5" fill="#1e3a8a"/>
-            <rect x="15.5" y="2" width="5" height="32" rx="2.5" fill="#1e3a8a" transform="rotate(60 18 18)"/>
-            <rect x="15.5" y="2" width="5" height="32" rx="2.5" fill="#1e3a8a" transform="rotate(-60 18 18)"/>
-            {/* White cross in center */}
-            <rect x="11" y="16" width="14" height="4" rx="1" fill="white"/>
-            <rect x="16" y="11" width="4" height="14" rx="1" fill="white"/>
-            {/* Red center dot */}
-            <circle cx="18" cy="18" r="2.5" fill="#dc2626"/>
-          </svg>
+        <a href="#" className="flex items-center gap-2.5">
+          <img
+            src="/logo.png"
+            alt="RRR HVAC Rescue LLC"
+            width={40}
+            height={40}
+            style={{ objectFit: "contain" }}
+          />
           <div>
             <div className="font-clash text-[15px] font-bold leading-none tracking-tight text-[#111111]">
               RRR HVAC

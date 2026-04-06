@@ -125,20 +125,14 @@ export default function IntroAnimation() {
       >
         <div className="text-center">
           <div className="flex items-center gap-3 justify-center mb-3">
-            <div className="w-11 h-11 rounded-full bg-orange-500 flex items-center justify-center">
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z" />
-              </svg>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo.png"
+              alt="RRR HVAC Rescue LLC"
+              width={56}
+              height={56}
+              style={{ objectFit: "contain" }}
+            />
             <div className="text-left">
               <div className="text-2xl font-black tracking-tight text-white leading-none">
                 RRR HVAC

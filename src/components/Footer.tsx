@@ -27,14 +27,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2">
             <div className="flex items-center gap-3 mb-5">
-              <svg width="32" height="32" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-                <rect x="15.5" y="2" width="5" height="32" rx="2.5" fill="#1e3a8a"/>
-                <rect x="15.5" y="2" width="5" height="32" rx="2.5" fill="#1e3a8a" transform="rotate(60 18 18)"/>
-                <rect x="15.5" y="2" width="5" height="32" rx="2.5" fill="#1e3a8a" transform="rotate(-60 18 18)"/>
-                <rect x="11" y="16" width="14" height="4" rx="1" fill="white"/>
-                <rect x="16" y="11" width="4" height="14" rx="1" fill="white"/>
-                <circle cx="18" cy="18" r="2.5" fill="#dc2626"/>
-              </svg>
+              <img
+                src="/logo.png"
+                alt="RRR HVAC Rescue LLC"
+                width={36}
+                height={36}
+                style={{ objectFit: "contain" }}
+              />
               <div>
                 <div className="font-clash font-bold text-base leading-none text-white">
                   RRR HVAC
