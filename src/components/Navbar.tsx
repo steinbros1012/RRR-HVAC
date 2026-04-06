@@ -15,11 +15,11 @@ export default function Navbar() {
   }, []);
 
   const links = [
-    { label: "Services", href: "#services" },
-    { label: "Why RRR", href: "#why" },
-    { label: "Reviews", href: "#reviews" },
+    { label: "Services", href: "/#services" },
+    { label: "Why RRR", href: "/#why" },
+    { label: "Reviews", href: "/#reviews" },
     { label: "About", href: "/about" },
-    { label: "Contact", href: "#contact" },
+    { label: "Contact", href: "/#contact" },
   ];
 
   return (
@@ -34,7 +34,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 h-full flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2.5">
+        <a href="/" className="flex items-center gap-2.5">
           <img
             src="/logo.png"
             alt="RRR HVAC Rescue LLC"
