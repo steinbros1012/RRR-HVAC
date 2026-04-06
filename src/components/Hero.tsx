@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 import EchoText from "./EchoText";
 import RolodexText from "./RolodexText";
 
-const PHONE = "(605) 555-0100";
+const PHONE = "(605) 881-5622";
 
 export default function Hero() {
   const taglineRef = useRef<HTMLDivElement>(null);
@@ -109,7 +109,7 @@ export default function Hero() {
 
         {/* Primary headline with echo stack */}
         <div ref={echoRef} className="opacity-0 mb-8">
-          <EchoText layers={4} offsetPx={4}>
+          <EchoText layers={3} offsetPx={1.5}>
             <h1
               className="font-clash font-bold leading-none"
               style={{

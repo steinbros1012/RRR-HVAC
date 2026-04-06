@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const PHONE = "(605) 555-0100";
+const PHONE = "(605) 881-5622";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -18,6 +18,7 @@ export default function Navbar() {
     { label: "Services", href: "#services" },
     { label: "Why RRR", href: "#why" },
     { label: "Reviews", href: "#reviews" },
+    { label: "About", href: "/about" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -34,23 +35,18 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 h-full flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-3">
-          <div
-            className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
-            style={{ background: "#111111" }}
-          >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="white"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z" />
-            </svg>
-          </div>
+          {/* Star-of-life badge */}
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            {/* 3 bars at 0°, 60°, 120° forming 6-pointed star */}
+            <rect x="15.5" y="2" width="5" height="32" rx="2.5" fill="#1e3a8a"/>
+            <rect x="15.5" y="2" width="5" height="32" rx="2.5" fill="#1e3a8a" transform="rotate(60 18 18)"/>
+            <rect x="15.5" y="2" width="5" height="32" rx="2.5" fill="#1e3a8a" transform="rotate(-60 18 18)"/>
+            {/* White cross in center */}
+            <rect x="11" y="16" width="14" height="4" rx="1" fill="white"/>
+            <rect x="16" y="11" width="4" height="14" rx="1" fill="white"/>
+            {/* Red center dot */}
+            <circle cx="18" cy="18" r="2.5" fill="#dc2626"/>
+          </svg>
           <div>
             <div className="font-clash text-[15px] font-bold leading-none tracking-tight text-[#111111]">
               RRR HVAC

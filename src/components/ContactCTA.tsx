@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 
-const PHONE = "(605) 555-0100";
+const PHONE = "(605) 881-5622";
 const EMAIL = "hello@rrrhvac.com";
 
 export default function ContactCTA() {

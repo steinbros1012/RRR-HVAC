@@ -10,6 +10,7 @@ import HorizontalGallery from "@/components/HorizontalGallery";
 import ReviewMarquee from "@/components/ReviewMarquee";
 import ContactCTA from "@/components/ContactCTA";
 import Footer from "@/components/Footer";
+import StickyEstimateCTA from "@/components/StickyEstimateCTA";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
         <ContactCTA />
       </main>
       <Footer />
+      <StickyEstimateCTA />
     </>
   );
 }

@@ -36,7 +36,7 @@ const cards = [
 
 // Scroll distance allocated per card-to-card transition.
 // 700px gives enough dwell time to read each card comfortably.
-const SCROLL_PER_STEP = 700;
+const SCROLL_PER_STEP = 450;
 const TOTAL_SCROLL = (cards.length - 1) * SCROLL_PER_STEP;
 
 export default function CardSwapSection() {
@@ -75,7 +75,7 @@ export default function CardSwapSection() {
           end: `+=${TOTAL_SCROLL}`,
           pin: true,
           pinSpacing: true,
-          scrub: 2,            // 2s lag = smooth, readable scrub
+          scrub: 1.2,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
             // Sync progress fill bar
@@ -213,7 +213,7 @@ export default function CardSwapSection() {
               {/* CTA on last card */}
               {i === cards.length - 1 && (
                 <a
-                  href="tel:6055550100"
+                  href="tel:6058815622"
                   className="inline-flex items-center gap-3 font-satoshi font-medium text-sm px-6 py-3 rounded-full transition-all duration-150 hover:opacity-80"
                   style={{ background: "#111111", color: "#ffffff" }}
                 >

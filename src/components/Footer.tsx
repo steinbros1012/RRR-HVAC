@@ -1,4 +1,4 @@
-const PHONE = "(605) 555-0100";
+const PHONE = "(605) 881-5622";
 
 export default function Footer() {
   const links = [
@@ -27,23 +27,14 @@ export default function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2">
             <div className="flex items-center gap-3 mb-5">
-              <div
-                className="w-8 h-8 rounded-full flex items-center justify-center"
-                style={{ border: "1px solid #2a2a2a" }}
-              >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#f97316"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z" />
-                </svg>
-              </div>
+              <svg width="32" height="32" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                <rect x="15.5" y="2" width="5" height="32" rx="2.5" fill="#1e3a8a"/>
+                <rect x="15.5" y="2" width="5" height="32" rx="2.5" fill="#1e3a8a" transform="rotate(60 18 18)"/>
+                <rect x="15.5" y="2" width="5" height="32" rx="2.5" fill="#1e3a8a" transform="rotate(-60 18 18)"/>
+                <rect x="11" y="16" width="14" height="4" rx="1" fill="white"/>
+                <rect x="16" y="11" width="4" height="14" rx="1" fill="white"/>
+                <circle cx="18" cy="18" r="2.5" fill="#dc2626"/>
+              </svg>
               <div>
                 <div className="font-clash font-bold text-base leading-none text-white">
                   RRR HVAC
