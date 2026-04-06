@@ -16,7 +16,9 @@ export default function Hero() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const tl = gsap.timeline({ delay: 2.0 });
+    // Delay matches intro animation: logo(0.55) + hold(0.65) + fade(0.25) + split(0.75) ≈ 1.7s
+    // Hero starts at 1.35s so elements are rising as the curtain opens
+    const tl = gsap.timeline({ delay: 1.35 });
 
     tl.fromTo(
       headlineRef.current,

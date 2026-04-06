@@ -114,7 +114,7 @@ export default function Services() {
   }, []);
 
   return (
-    <section id="services" ref={sectionRef} className="py-24 sm:py-32">
+    <section id="services" ref={sectionRef} className="py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div ref={titleRef} className="mb-16 opacity-0">
           <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 rounded-full px-4 py-1.5 mb-6">

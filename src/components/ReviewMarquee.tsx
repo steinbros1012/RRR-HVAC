@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 
 const reviews = [
   {
@@ -87,12 +86,12 @@ function ReviewCard({ review }: { review: typeof reviews[0] }) {
 }
 
 export default function ReviewMarquee() {
-  const [paused, setPaused] = useState(false);
-  const doubled = [...reviews, ...reviews];
+  // Triple the reviews so the loop is seamless even at faster speed
+  const tripled = [...reviews, ...reviews, ...reviews];
 
   return (
-    <section id="reviews" className="py-24 sm:py-32 overflow-hidden bg-[#060a11]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-14">
+    <section id="reviews" className="py-16 sm:py-24 overflow-hidden bg-[#060a11]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-12">
         <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 rounded-full px-4 py-1.5 mb-6">
           <span className="text-orange-300 text-sm font-medium tracking-wide">Customer Reviews</span>
         </div>
@@ -102,7 +101,7 @@ export default function ReviewMarquee() {
           </h2>
           <div className="flex items-center gap-2">
             <div className="flex">
-              {[1,2,3,4,5].map((i) => (
+              {[1, 2, 3, 4, 5].map((i) => (
                 <svg key={i} width="20" height="20" viewBox="0 0 24 24" fill="#f97316">
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                 </svg>
@@ -114,11 +113,8 @@ export default function ReviewMarquee() {
         </div>
       </div>
 
-      <div
-        className="relative"
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
-      >
+      {/* No hover pause — marquee runs continuously */}
+      <div className="relative">
         {/* Left fade */}
         <div
           className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
@@ -130,10 +126,9 @@ export default function ReviewMarquee() {
           style={{ background: "linear-gradient(to left, #060a11, transparent)" }}
         />
 
-        <div
-          className={paused ? "flex animate-marquee animate-marquee-paused" : "flex animate-marquee"}
-        >
-          {doubled.map((review, i) => (
+        {/* animate-marquee-fast defined in globals.css — 22s, no pause */}
+        <div className="flex animate-marquee-fast">
+          {tripled.map((review, i) => (
             <ReviewCard key={`${review.name}-${i}`} review={review} />
           ))}
         </div>
