@@ -3,7 +3,7 @@
 import { useRef } from "react";
 
 const PHONE = "(605) 881-5622";
-const EMAIL = "hello@rrrhvac.com";
+const EMAIL = "rrrhvacrescue@outlook.com";
 
 export default function ContactCTA() {
   const formRef = useRef<HTMLFormElement>(null);
