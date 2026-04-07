@@ -13,11 +13,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* Clash Display (headlines) + Satoshi (body) via Fontshare */}
-        <link rel="preconnect" href="https://api.fontshare.com" />
+        {/* DM Serif Display + Geist Mono + Inter via Google Fonts */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
+          href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Geist+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"
           rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=clash-display@700,600,500&f[]=satoshi@400,500,700&display=swap"
         />
       </head>
       <body>{children}</body>

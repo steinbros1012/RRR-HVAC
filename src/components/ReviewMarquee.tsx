@@ -53,7 +53,7 @@ function StarRating({ count }: { count: number }) {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: count }).map((_, i) => (
-        <svg key={i} width="12" height="12" viewBox="0 0 24 24" fill="#f97316">
+        <svg key={i} width="12" height="12" viewBox="0 0 24 24" fill="#F97316">
           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
         </svg>
       ))}
@@ -66,27 +66,30 @@ function ReviewCard({ review }: { review: (typeof reviews)[0] }) {
     <div
       className="flex-shrink-0 w-80 p-6 mx-3 flex flex-col gap-4"
       style={{
-        background: "#ffffff",
-        border: "1px solid #e2e2e2",
+        background: "#111111",
+        border: "1px solid rgba(255,255,255,0.08)",
         borderRadius: "2px",
       }}
     >
       <StarRating count={review.rating} />
-      <p className="font-satoshi text-sm leading-relaxed flex-1" style={{ color: "#838282" }}>
+      <p className="font-body text-sm leading-relaxed flex-1" style={{ color: "#64748B" }}>
         &ldquo;{review.text}&rdquo;
       </p>
-      <div className="flex items-center gap-3 pt-2" style={{ borderTop: "1px solid #f2f2f2" }}>
+      <div
+        className="flex items-center gap-3 pt-2"
+        style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+      >
         <div
-          className="w-7 h-7 rounded-full flex items-center justify-center font-clash font-bold text-xs"
-          style={{ background: "#111111", color: "#ffffff" }}
+          className="w-7 h-7 rounded-full flex items-center justify-center font-mono font-bold text-xs"
+          style={{ background: "#1a1a1a", color: "#F97316", border: "1px solid rgba(255,255,255,0.1)" }}
         >
           {review.name[0]}
         </div>
         <div>
-          <div className="font-satoshi text-xs font-medium" style={{ color: "#111111" }}>
+          <div className="font-body text-xs font-medium" style={{ color: "#FFFFFF" }}>
             {review.name}
           </div>
-          <div className="font-satoshi text-[10px] tracking-wide" style={{ color: "#b6b5b5" }}>
+          <div className="font-mono" style={{ fontSize: "10px", letterSpacing: "0.08em", color: "#64748B" }}>
             {review.location}
           </div>
         </div>
@@ -102,23 +105,33 @@ export default function ReviewMarquee() {
     <section
       id="reviews"
       className="overflow-hidden"
-      style={{ background: "#f2f2f2", borderTop: "1px solid #e2e2e2", paddingTop: "80px", paddingBottom: "80px" }}
+      style={{
+        background: "#0a0a0a",
+        borderTop: "1px solid rgba(255,255,255,0.06)",
+        paddingTop: "80px",
+        paddingBottom: "80px",
+      }}
     >
       {/* Header */}
       <div className="max-w-7xl mx-auto px-5 sm:px-8 mb-12">
         <div className="flex items-center gap-3 mb-5">
-          <div className="w-6 h-px" style={{ background: "#f97316" }} />
-          <span className="font-satoshi text-[11px] tracking-[0.2em] uppercase text-[#f97316]">
+          <div className="w-6 h-px" style={{ background: "#F97316" }} />
+          <span
+            className="font-mono uppercase"
+            style={{ fontSize: "11px", letterSpacing: "0.2em", color: "#F97316" }}
+          >
             Customer Reviews
           </span>
         </div>
         <div className="flex flex-col sm:flex-row sm:items-end gap-4 justify-between">
           <h2
-            className="font-clash font-bold leading-none"
+            className="font-serif"
             style={{
               fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
-              letterSpacing: "-0.04em",
-              color: "#111111",
+              letterSpacing: "-0.02em",
+              color: "#FFFFFF",
+              fontStyle: "italic",
+              lineHeight: 0.92,
             }}
           >
             What Watertown
@@ -127,30 +140,30 @@ export default function ReviewMarquee() {
           </h2>
           <div className="flex items-center gap-2">
             {[1, 2, 3, 4, 5].map((i) => (
-              <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill="#f97316">
+              <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill="#F97316">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
               </svg>
             ))}
-            <span className="font-clash font-bold text-lg ml-1" style={{ color: "#111111" }}>
+            <span className="font-mono font-semibold text-lg ml-1" style={{ color: "#FFFFFF" }}>
               5.0
             </span>
-            <span className="font-satoshi text-sm" style={{ color: "#b6b5b5" }}>
+            <span className="font-body text-sm" style={{ color: "#64748B" }}>
               / 5.0
             </span>
           </div>
         </div>
       </div>
 
-      {/* Marquee — runs continuously, no hover pause */}
+      {/* Marquee */}
       <div className="relative">
         {/* Edge fades */}
         <div
           className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to right, #f2f2f2, transparent)" }}
+          style={{ background: "linear-gradient(to right, #0a0a0a, transparent)" }}
         />
         <div
           className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to left, #f2f2f2, transparent)" }}
+          style={{ background: "linear-gradient(to left, #0a0a0a, transparent)" }}
         />
 
         <div className="flex animate-marquee-fast">

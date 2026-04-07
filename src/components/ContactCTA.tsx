@@ -14,17 +14,39 @@ export default function ContactCTA() {
     formRef.current?.reset();
   };
 
+  const inputStyle: React.CSSProperties = {
+    background: "#111111",
+    border: "1px solid rgba(255,255,255,0.1)",
+    color: "#FFFFFF",
+    width: "100%",
+    padding: "12px 16px",
+    fontFamily: "'Inter', sans-serif",
+    fontSize: "14px",
+    outline: "none",
+    transition: "border-color 0.15s",
+  };
+
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    e.currentTarget.style.borderColor = "rgba(249,115,22,0.6)";
+  };
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+  };
+
   return (
     <section
       id="contact"
       className="py-20 sm:py-28"
-      style={{ background: "#ffffff", borderTop: "1px solid #e2e2e2" }}
+      style={{ background: "#080808", borderTop: "1px solid rgba(255,255,255,0.06)" }}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Section label */}
         <div className="flex items-center gap-3 mb-10">
-          <div className="w-6 h-px" style={{ background: "#f97316" }} />
-          <span className="font-satoshi text-[11px] tracking-[0.2em] uppercase text-[#f97316]">
+          <div className="w-6 h-px" style={{ background: "#F97316" }} />
+          <span
+            className="font-mono uppercase"
+            style={{ fontSize: "11px", letterSpacing: "0.2em", color: "#F97316" }}
+          >
             Get In Touch
           </span>
         </div>
@@ -33,11 +55,13 @@ export default function ContactCTA() {
           {/* Left — info */}
           <div>
             <h2
-              className="font-clash font-bold leading-none mb-6"
+              className="font-serif leading-none mb-6"
               style={{
                 fontSize: "clamp(2.4rem, 5vw, 3.8rem)",
-                letterSpacing: "-0.04em",
-                color: "#111111",
+                letterSpacing: "-0.02em",
+                color: "#FFFFFF",
+                fontStyle: "italic",
+                lineHeight: 0.92,
               }}
             >
               Need HVAC Help
@@ -45,30 +69,34 @@ export default function ContactCTA() {
               in Watertown?
             </h2>
             <p
-              className="font-satoshi text-base leading-relaxed mb-10"
-              style={{ color: "#838282", maxWidth: "400px" }}
+              className="font-body text-base leading-relaxed mb-10"
+              style={{ color: "#64748B", maxWidth: "400px" }}
             >
               Call or send a message and Mike will get back to you fast. For emergencies, call
               directly — we pick up.
             </p>
 
             {/* Contact rows */}
-            <div className="space-y-6" style={{ borderTop: "1px solid #e2e2e2", paddingTop: "28px" }}>
+            <div
+              className="space-y-6"
+              style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: "28px" }}
+            >
               <a
                 href={`tel:${PHONE.replace(/\D/g, "")}`}
                 className="flex items-center gap-5 group"
               >
                 <div
-                  className="w-10 h-10 flex items-center justify-center flex-shrink-0 rounded-full transition-colors duration-150 group-hover:bg-[#111111]"
-                  style={{ border: "1px solid #e2e2e2" }}
+                  className="w-10 h-10 flex items-center justify-center flex-shrink-0 rounded-full transition-all duration-150"
+                  style={{ border: "1px solid rgba(255,255,255,0.1)" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.background = "#F97316")}
+                  onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                 >
                   <svg
                     width="16"
                     height="16"
                     viewBox="0 0 24 24"
                     fill="none"
-                    className="group-hover:stroke-white transition-colors duration-150"
-                    stroke="#838282"
+                    stroke="#64748B"
                     strokeWidth="1.8"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -78,14 +106,14 @@ export default function ContactCTA() {
                 </div>
                 <div>
                   <div
-                    className="font-satoshi text-[10px] tracking-[0.15em] uppercase mb-0.5"
-                    style={{ color: "#b6b5b5" }}
+                    className="font-mono uppercase mb-0.5"
+                    style={{ fontSize: "10px", letterSpacing: "0.15em", color: "#64748B" }}
                   >
                     Phone
                   </div>
                   <div
-                    className="font-clash font-bold text-xl group-hover:text-[#f97316] transition-colors duration-150"
-                    style={{ color: "#111111", letterSpacing: "-0.02em" }}
+                    className="font-mono font-semibold text-xl group-hover:text-[#F97316] transition-colors duration-150"
+                    style={{ color: "#FFFFFF", letterSpacing: "-0.01em" }}
                   >
                     {PHONE}
                   </div>
@@ -97,16 +125,17 @@ export default function ContactCTA() {
                 className="flex items-center gap-5 group"
               >
                 <div
-                  className="w-10 h-10 flex items-center justify-center flex-shrink-0 rounded-full transition-colors duration-150 group-hover:bg-[#111111]"
-                  style={{ border: "1px solid #e2e2e2" }}
+                  className="w-10 h-10 flex items-center justify-center flex-shrink-0 rounded-full transition-all duration-150"
+                  style={{ border: "1px solid rgba(255,255,255,0.1)" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.background = "#F97316")}
+                  onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                 >
                   <svg
                     width="16"
                     height="16"
                     viewBox="0 0 24 24"
                     fill="none"
-                    className="group-hover:stroke-white transition-colors duration-150"
-                    stroke="#838282"
+                    stroke="#64748B"
                     strokeWidth="1.8"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -117,14 +146,14 @@ export default function ContactCTA() {
                 </div>
                 <div>
                   <div
-                    className="font-satoshi text-[10px] tracking-[0.15em] uppercase mb-0.5"
-                    style={{ color: "#b6b5b5" }}
+                    className="font-mono uppercase mb-0.5"
+                    style={{ fontSize: "10px", letterSpacing: "0.15em", color: "#64748B" }}
                   >
                     Email
                   </div>
                   <div
-                    className="font-satoshi font-medium text-base group-hover:text-[#f97316] transition-colors duration-150"
-                    style={{ color: "#111111" }}
+                    className="font-body font-medium text-base group-hover:text-[#F97316] transition-colors duration-150"
+                    style={{ color: "#FFFFFF" }}
                   >
                     {EMAIL}
                   </div>
@@ -134,14 +163,14 @@ export default function ContactCTA() {
               <div className="flex items-center gap-5">
                 <div
                   className="w-10 h-10 flex items-center justify-center flex-shrink-0 rounded-full"
-                  style={{ border: "1px solid #e2e2e2" }}
+                  style={{ border: "1px solid rgba(255,255,255,0.1)" }}
                 >
                   <svg
                     width="16"
                     height="16"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#838282"
+                    stroke="#64748B"
                     strokeWidth="1.8"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -152,13 +181,13 @@ export default function ContactCTA() {
                 </div>
                 <div>
                   <div
-                    className="font-satoshi text-[10px] tracking-[0.15em] uppercase mb-0.5"
-                    style={{ color: "#b6b5b5" }}
+                    className="font-mono uppercase mb-0.5"
+                    style={{ fontSize: "10px", letterSpacing: "0.15em", color: "#64748B" }}
                   >
                     Service Area
                   </div>
-                  <div className="font-satoshi font-medium text-base" style={{ color: "#111111" }}>
-                    Watertown, SD & Surrounding Areas
+                  <div className="font-body font-medium text-base" style={{ color: "#FFFFFF" }}>
+                    Watertown, SD &amp; Surrounding Areas
                   </div>
                 </div>
               </div>
@@ -168,11 +197,15 @@ export default function ContactCTA() {
           {/* Right — form */}
           <div
             className="p-8"
-            style={{ background: "#f2f2f2", border: "1px solid #e2e2e2" }}
+            style={{
+              background: "#0f0f0f",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderRadius: "1rem",
+            }}
           >
             <h3
-              className="font-clash font-bold text-2xl mb-6"
-              style={{ color: "#111111", letterSpacing: "-0.03em" }}
+              className="font-serif text-2xl mb-6"
+              style={{ color: "#FFFFFF", fontStyle: "italic", letterSpacing: "-0.01em" }}
             >
               Request Service
             </h3>
@@ -181,23 +214,18 @@ export default function ContactCTA() {
                 {["First Name", "Last Name"].map((label) => (
                   <div key={label}>
                     <label
-                      className="font-satoshi text-[11px] tracking-[0.1em] uppercase mb-2 block"
-                      style={{ color: "#838282" }}
+                      className="font-mono uppercase mb-2 block"
+                      style={{ fontSize: "10px", letterSpacing: "0.1em", color: "#64748B" }}
                     >
                       {label}
                     </label>
                     <input
                       type="text"
                       required
-                      className="w-full px-4 py-3 font-satoshi text-sm transition-colors duration-150 outline-none"
-                      style={{
-                        background: "#ffffff",
-                        border: "1px solid #e2e2e2",
-                        color: "#111111",
-                      }}
+                      style={inputStyle}
                       placeholder={label === "First Name" ? "Jane" : "Smith"}
-                      onFocus={(e) => (e.currentTarget.style.borderColor = "#111111")}
-                      onBlur={(e) => (e.currentTarget.style.borderColor = "#e2e2e2")}
+                      onFocus={handleFocus}
+                      onBlur={handleBlur}
                     />
                   </div>
                 ))}
@@ -205,35 +233,33 @@ export default function ContactCTA() {
 
               <div>
                 <label
-                  className="font-satoshi text-[11px] tracking-[0.1em] uppercase mb-2 block"
-                  style={{ color: "#838282" }}
+                  className="font-mono uppercase mb-2 block"
+                  style={{ fontSize: "10px", letterSpacing: "0.1em", color: "#64748B" }}
                 >
                   Phone Number
                 </label>
                 <input
                   type="tel"
                   required
-                  className="w-full px-4 py-3 font-satoshi text-sm transition-colors duration-150 outline-none"
-                  style={{ background: "#ffffff", border: "1px solid #e2e2e2", color: "#111111" }}
+                  style={inputStyle}
                   placeholder="(605) 555-0100"
-                  onFocus={(e) => (e.currentTarget.style.borderColor = "#111111")}
-                  onBlur={(e) => (e.currentTarget.style.borderColor = "#e2e2e2")}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
                 />
               </div>
 
               <div>
                 <label
-                  className="font-satoshi text-[11px] tracking-[0.1em] uppercase mb-2 block"
-                  style={{ color: "#838282" }}
+                  className="font-mono uppercase mb-2 block"
+                  style={{ fontSize: "10px", letterSpacing: "0.1em", color: "#64748B" }}
                 >
                   Service Needed
                 </label>
                 <select
                   required
-                  className="w-full px-4 py-3 font-satoshi text-sm transition-colors duration-150 outline-none"
-                  style={{ background: "#ffffff", border: "1px solid #e2e2e2", color: "#111111" }}
-                  onFocus={(e) => (e.currentTarget.style.borderColor = "#111111")}
-                  onBlur={(e) => (e.currentTarget.style.borderColor = "#e2e2e2")}
+                  style={{ ...inputStyle, cursor: "pointer" }}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
                 >
                   <option value="">Select a service...</option>
                   <option>AC Repair</option>
@@ -250,25 +276,35 @@ export default function ContactCTA() {
 
               <div>
                 <label
-                  className="font-satoshi text-[11px] tracking-[0.1em] uppercase mb-2 block"
-                  style={{ color: "#838282" }}
+                  className="font-mono uppercase mb-2 block"
+                  style={{ fontSize: "10px", letterSpacing: "0.1em", color: "#64748B" }}
                 >
                   Tell Us More
                 </label>
                 <textarea
                   rows={4}
-                  className="w-full px-4 py-3 font-satoshi text-sm transition-colors duration-150 outline-none resize-none"
-                  style={{ background: "#ffffff", border: "1px solid #e2e2e2", color: "#111111" }}
+                  style={{ ...inputStyle, resize: "none" }}
                   placeholder="Describe the issue or what you need..."
-                  onFocus={(e) => (e.currentTarget.style.borderColor = "#111111")}
-                  onBlur={(e) => (e.currentTarget.style.borderColor = "#e2e2e2")}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full font-satoshi font-bold text-sm py-4 transition-all duration-150 hover:opacity-90 tracking-wide"
-                style={{ background: "#111111", color: "#ffffff" }}
+                className="w-full font-mono uppercase font-semibold"
+                style={{
+                  fontSize: "12px",
+                  letterSpacing: "0.1em",
+                  padding: "16px",
+                  background: "#F97316",
+                  color: "#000000",
+                  border: "none",
+                  cursor: "pointer",
+                  transition: "opacity 0.15s",
+                }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.opacity = "0.85")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.opacity = "1")}
               >
                 Send Request →
               </button>

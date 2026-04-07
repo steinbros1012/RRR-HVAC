@@ -78,38 +78,39 @@ export default function HorizontalGallery() {
 
   return (
     <>
-      {/* ── Desktop: horizontal pin ───────────────────────────────────────── */}
+      {/* Desktop: horizontal pin */}
       <div
         ref={sectionRef}
         className="hidden md:flex flex-col overflow-hidden"
-        style={{ height: "100vh", background: "#111111" }}
+        style={{ height: "100vh", background: "#080808" }}
       >
         {/* Title row */}
         <div className="flex-shrink-0 flex items-end justify-between max-w-7xl mx-auto w-full px-8 pt-16 pb-6">
           <div>
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-6 h-px" style={{ background: "#f97316" }} />
+              <div className="w-6 h-px" style={{ background: "#F97316" }} />
               <span
-                className="font-satoshi text-[11px] tracking-[0.2em] uppercase"
-                style={{ color: "#f97316" }}
+                className="font-mono uppercase"
+                style={{ fontSize: "11px", letterSpacing: "0.2em", color: "#F97316" }}
               >
                 Our Process
               </span>
             </div>
             <h2
-              className="font-clash font-bold leading-none"
+              className="font-serif"
               style={{
                 fontSize: "clamp(2rem, 4vw, 3rem)",
-                letterSpacing: "-0.04em",
-                color: "#ffffff",
+                letterSpacing: "-0.02em",
+                color: "#FFFFFF",
+                fontStyle: "italic",
               }}
             >
               How RRR HVAC Works
             </h2>
           </div>
           <span
-            className="font-satoshi text-[11px] tracking-widest uppercase"
-            style={{ color: "#838282" }}
+            className="font-mono uppercase"
+            style={{ fontSize: "11px", letterSpacing: "0.15em", color: "#64748B" }}
           >
             Scroll →
           </span>
@@ -120,7 +121,7 @@ export default function HorizontalGallery() {
           <div
             ref={trackRef}
             className="flex h-full gap-px"
-            style={{ paddingLeft: "5vw", paddingRight: "8vw", background: "#2a2a2a" }}
+            style={{ paddingLeft: "5vw", paddingRight: "8vw", background: "rgba(255,255,255,0.04)" }}
           >
             {panels.map((panel, i) => (
               <div
@@ -132,15 +133,15 @@ export default function HorizontalGallery() {
                   {/* Step indicator */}
                   <div className="flex items-center gap-3 mb-8">
                     <span
-                      className="font-clash font-bold text-4xl leading-none"
-                      style={{ color: "#2a2a2a", letterSpacing: "-0.04em" }}
+                      className="font-mono font-semibold text-4xl leading-none"
+                      style={{ color: "rgba(255,255,255,0.08)", letterSpacing: "-0.04em" }}
                     >
                       {panel.step}
                     </span>
-                    <div className="w-8 h-px" style={{ background: "#2a2a2a" }} />
+                    <div className="w-8 h-px" style={{ background: "rgba(255,255,255,0.08)" }} />
                     <span
-                      className="font-satoshi text-[10px] tracking-[0.15em] uppercase"
-                      style={{ color: "#838282" }}
+                      className="font-mono uppercase"
+                      style={{ fontSize: "10px", letterSpacing: "0.15em", color: "#64748B" }}
                     >
                       Step {panel.step}
                     </span>
@@ -148,19 +149,20 @@ export default function HorizontalGallery() {
 
                   {/* Title */}
                   <h3
-                    className="font-clash font-bold leading-tight mb-5 whitespace-pre-line"
+                    className="font-serif leading-tight mb-5 whitespace-pre-line"
                     style={{
                       fontSize: "clamp(1.6rem, 2.5vw, 2.2rem)",
-                      letterSpacing: "-0.03em",
-                      color: "#ffffff",
+                      letterSpacing: "-0.02em",
+                      color: "#FFFFFF",
+                      fontStyle: "italic",
                     }}
                   >
                     {panel.title}
                   </h3>
 
                   <p
-                    className="font-satoshi text-base leading-relaxed"
-                    style={{ color: "#838282" }}
+                    className="font-body text-base leading-relaxed"
+                    style={{ color: "#64748B" }}
                   >
                     {panel.desc}
                   </p>
@@ -168,10 +170,10 @@ export default function HorizontalGallery() {
 
                 {/* Bottom accent */}
                 <div className="flex items-center justify-between">
-                  <div className="w-8 h-px" style={{ background: "#f97316", opacity: 0.5 }} />
+                  <div className="w-8 h-px" style={{ background: "#F97316", opacity: 0.5 }} />
                   <span
-                    className="font-satoshi text-[10px] tracking-[0.15em] uppercase"
-                    style={{ color: "#2a2a2a" }}
+                    className="font-mono"
+                    style={{ fontSize: "10px", letterSpacing: "0.15em", color: "rgba(255,255,255,0.12)" }}
                   >
                     {i + 1} / {panels.length}
                   </span>
@@ -182,25 +184,26 @@ export default function HorizontalGallery() {
         </div>
       </div>
 
-      {/* ── Mobile: vertical stack ────────────────────────────────────────── */}
-      <div className="md:hidden py-16 px-5" style={{ background: "#111111" }}>
+      {/* Mobile: vertical stack */}
+      <div className="md:hidden py-16 px-5" style={{ background: "#080808" }}>
         <div className="flex items-center gap-3 mb-3">
-          <div className="w-6 h-px" style={{ background: "#f97316" }} />
-          <span className="font-satoshi text-[11px] tracking-[0.2em] uppercase text-[#f97316]">
+          <div className="w-6 h-px" style={{ background: "#F97316" }} />
+          <span className="font-mono uppercase" style={{ fontSize: "11px", letterSpacing: "0.2em", color: "#F97316" }}>
             Our Process
           </span>
         </div>
         <h2
-          className="font-clash font-bold mb-10"
+          className="font-serif mb-10"
           style={{
             fontSize: "2rem",
-            letterSpacing: "-0.04em",
-            color: "#ffffff",
+            letterSpacing: "-0.02em",
+            color: "#FFFFFF",
+            fontStyle: "italic",
           }}
         >
           How RRR HVAC Works
         </h2>
-        <div className="space-y-px" style={{ background: "#2a2a2a" }}>
+        <div className="space-y-px" style={{ background: "rgba(255,255,255,0.04)" }}>
           {panels.map((panel, i) => (
             <div
               key={panel.step}
@@ -209,19 +212,19 @@ export default function HorizontalGallery() {
             >
               <div className="flex items-center gap-3 mb-4">
                 <span
-                  className="font-clash font-bold text-3xl leading-none"
-                  style={{ color: "#2a2a2a", letterSpacing: "-0.04em" }}
+                  className="font-mono font-semibold text-3xl leading-none"
+                  style={{ color: "rgba(255,255,255,0.08)", letterSpacing: "-0.04em" }}
                 >
                   {panel.step}
                 </span>
               </div>
               <h3
-                className="font-clash font-bold text-xl leading-tight mb-3 whitespace-pre-line"
-                style={{ color: "#ffffff", letterSpacing: "-0.02em" }}
+                className="font-serif text-xl leading-tight mb-3 whitespace-pre-line"
+                style={{ color: "#FFFFFF", fontStyle: "italic" }}
               >
                 {panel.title}
               </h3>
-              <p className="font-satoshi text-sm leading-relaxed" style={{ color: "#838282" }}>
+              <p className="font-body text-sm leading-relaxed" style={{ color: "#64748B" }}>
                 {panel.desc}
               </p>
             </div>

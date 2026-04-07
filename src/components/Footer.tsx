@@ -1,3 +1,5 @@
+"use client";
+
 const PHONE = "(605) 881-5622";
 
 export default function Footer() {
@@ -18,15 +20,16 @@ export default function Footer() {
   ];
 
   return (
-    <footer style={{ background: "#111111", borderTop: "1px solid #1e1e1e" }}>
+    <footer style={{ background: "#080808", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
       <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-14 pb-8">
         <div
           className="grid sm:grid-cols-2 md:grid-cols-4 gap-10 pb-10"
-          style={{ borderBottom: "1px solid #1e1e1e" }}
+          style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
         >
           {/* Brand */}
           <div className="sm:col-span-2">
             <div className="flex items-center gap-3 mb-5">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/logo.png"
                 alt="RRR HVAC Rescue LLC"
@@ -35,28 +38,48 @@ export default function Footer() {
                 style={{ objectFit: "contain" }}
               />
               <div>
-                <div className="font-clash font-bold text-base leading-none text-white">
+                <div
+                  className="font-serif leading-none"
+                  style={{ fontSize: "15px", color: "#FFFFFF", letterSpacing: "-0.01em" }}
+                >
                   RRR HVAC
                 </div>
                 <div
-                  className="font-satoshi text-[9px] tracking-[0.18em] uppercase mt-0.5"
-                  style={{ color: "#f97316" }}
+                  className="font-mono uppercase mt-0.5"
+                  style={{ fontSize: "8px", letterSpacing: "0.18em", color: "#F97316" }}
                 >
                   Rescue LLC
                 </div>
               </div>
             </div>
             <p
-              className="font-satoshi text-sm leading-relaxed max-w-xs mb-6"
-              style={{ color: "#838282" }}
+              className="font-body text-sm leading-relaxed max-w-xs mb-6"
+              style={{ color: "#64748B" }}
             >
               Watertown&apos;s trusted heating and cooling experts. Fast, honest, local HVAC
               service you can count on.
             </p>
             <a
               href={`tel:${PHONE.replace(/\D/g, "")}`}
-              className="inline-flex items-center font-satoshi text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-150 text-white hover:bg-white hover:text-[#111111]"
-              style={{ border: "1px solid #2a2a2a" }}
+              className="font-mono uppercase inline-flex items-center"
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.1em",
+                padding: "10px 20px",
+                borderRadius: "999px",
+                border: "1px solid rgba(255,255,255,0.12)",
+                color: "#FFFFFF",
+                textDecoration: "none",
+                transition: "border-color 0.15s, color 0.15s",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = "#F97316";
+                (e.currentTarget as HTMLAnchorElement).style.color = "#F97316";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.12)";
+                (e.currentTarget as HTMLAnchorElement).style.color = "#FFFFFF";
+              }}
             >
               {PHONE}
             </a>
@@ -65,8 +88,8 @@ export default function Footer() {
           {/* Nav */}
           <div>
             <div
-              className="font-satoshi text-[10px] tracking-[0.2em] uppercase mb-5"
-              style={{ color: "#838282" }}
+              className="font-mono uppercase mb-5"
+              style={{ fontSize: "10px", letterSpacing: "0.2em", color: "#64748B" }}
             >
               Navigation
             </div>
@@ -75,8 +98,10 @@ export default function Footer() {
                 <li key={l.label}>
                   <a
                     href={l.href}
-                    className="font-satoshi text-sm transition-colors duration-150 hover:text-white"
-                    style={{ color: "#838282" }}
+                    className="font-body text-sm transition-colors duration-150"
+                    style={{ color: "#64748B", textDecoration: "none" }}
+                    onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#FFFFFF")}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#64748B")}
                   >
                     {l.label}
                   </a>
@@ -88,8 +113,8 @@ export default function Footer() {
           {/* Services */}
           <div>
             <div
-              className="font-satoshi text-[10px] tracking-[0.2em] uppercase mb-5"
-              style={{ color: "#838282" }}
+              className="font-mono uppercase mb-5"
+              style={{ fontSize: "10px", letterSpacing: "0.2em", color: "#64748B" }}
             >
               Services
             </div>
@@ -98,8 +123,10 @@ export default function Footer() {
                 <li key={s}>
                   <a
                     href="#services"
-                    className="font-satoshi text-sm transition-colors duration-150 hover:text-white"
-                    style={{ color: "#838282" }}
+                    className="font-body text-sm transition-colors duration-150"
+                    style={{ color: "#64748B", textDecoration: "none" }}
+                    onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#FFFFFF")}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#64748B")}
                   >
                     {s}
                   </a>
@@ -110,10 +137,10 @@ export default function Footer() {
         </div>
 
         <div className="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <div className="font-satoshi text-[11px]" style={{ color: "#838282" }}>
+          <div className="font-body" style={{ fontSize: "11px", color: "#64748B" }}>
             © {new Date().getFullYear()} RRR HVAC Rescue LLC · Watertown, South Dakota
           </div>
-          <div className="font-satoshi text-[11px]" style={{ color: "#838282" }}>
+          <div className="font-body" style={{ fontSize: "11px", color: "#64748B" }}>
             Licensed &amp; Insured · All Makes &amp; Models
           </div>
         </div>

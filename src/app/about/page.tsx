@@ -41,17 +41,20 @@ export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <main style={{ background: "#f2f2f2" }}>
+      <main style={{ background: "#080808" }}>
 
-        {/* ── Hero ─────────────────────────────────────────────────────────── */}
+        {/* Hero */}
         <section
           className="pt-36 pb-20 sm:pb-28"
-          style={{ background: "#f2f2f2", borderBottom: "1px solid #e2e2e2" }}
+          style={{ background: "#080808", borderBottom: "1px solid rgba(255,255,255,0.06)" }}
         >
           <div className="max-w-7xl mx-auto px-5 sm:px-8">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-6 h-px" style={{ background: "#f97316" }} />
-              <span className="font-satoshi text-[11px] tracking-[0.2em] uppercase text-[#f97316]">
+              <div className="w-6 h-px" style={{ background: "#F97316" }} />
+              <span
+                className="font-mono uppercase"
+                style={{ fontSize: "11px", letterSpacing: "0.2em", color: "#F97316" }}
+              >
                 About RRR HVAC
               </span>
             </div>
@@ -59,22 +62,24 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-16 items-end">
               <div>
                 <h1
-                  className="font-clash font-bold leading-none mb-6"
+                  className="font-serif leading-none mb-6"
                   style={{
                     fontSize: "clamp(3rem, 7vw, 5.5rem)",
-                    letterSpacing: "-0.04em",
-                    color: "#111111",
+                    letterSpacing: "-0.02em",
+                    color: "#FFFFFF",
+                    fontStyle: "italic",
+                    lineHeight: 0.88,
                   }}
                 >
                   Meet Mike.
                   <br />
-                  <span style={{ color: "#f97316" }}>Your</span> HVAC
+                  <span style={{ color: "#F97316" }}>Your</span> HVAC
                   <br />
                   Expert.
                 </h1>
                 <p
-                  className="font-satoshi text-lg leading-relaxed"
-                  style={{ color: "#838282", maxWidth: "440px" }}
+                  className="font-body text-lg leading-relaxed"
+                  style={{ color: "#64748B", maxWidth: "440px" }}
                 >
                   RRR HVAC Rescue LLC was built on one simple idea: Watertown deserves a
                   heating and cooling company that treats customers like neighbors — because we
@@ -84,37 +89,37 @@ export default function AboutPage() {
 
               <div
                 className="p-8 sm:p-10"
-                style={{ background: "#111111" }}
+                style={{ background: "#111111", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "1rem" }}
               >
                 <div className="mb-6">
                   <div
-                    className="font-satoshi text-[10px] tracking-[0.18em] uppercase mb-1"
-                    style={{ color: "#838282" }}
+                    className="font-mono uppercase mb-1"
+                    style={{ fontSize: "10px", letterSpacing: "0.18em", color: "#64748B" }}
                   >
                     Owner &amp; Lead Technician
                   </div>
                   <div
-                    className="font-clash font-bold text-3xl leading-none"
-                    style={{ color: "#ffffff", letterSpacing: "-0.03em" }}
+                    className="font-serif leading-none"
+                    style={{ fontSize: "2rem", color: "#FFFFFF", fontStyle: "italic" }}
                   >
                     Mike
                   </div>
                   <div
-                    className="font-satoshi text-sm mt-1"
-                    style={{ color: "#f97316" }}
+                    className="font-mono uppercase mt-1"
+                    style={{ fontSize: "10px", letterSpacing: "0.1em", color: "#F97316" }}
                   >
                     RRR HVAC Rescue LLC
                   </div>
                 </div>
-                <div className="h-px mb-6" style={{ background: "#2a2a2a" }} />
+                <div className="h-px mb-6" style={{ background: "rgba(255,255,255,0.08)" }} />
                 <ul className="space-y-3">
                   {credentials.map((c) => (
                     <li key={c} className="flex items-center gap-3">
                       <div
                         className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                        style={{ background: "#f97316" }}
+                        style={{ background: "#F97316" }}
                       />
-                      <span className="font-satoshi text-sm" style={{ color: "#b6b5b5" }}>
+                      <span className="font-body text-sm" style={{ color: "#E2E8F0" }}>
                         {c}
                       </span>
                     </li>
@@ -125,23 +130,30 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── Story ────────────────────────────────────────────────────────── */}
-        <section className="py-20 sm:py-28" style={{ borderBottom: "1px solid #e2e2e2" }}>
+        {/* Story */}
+        <section
+          className="py-20 sm:py-28"
+          style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
+        >
           <div className="max-w-7xl mx-auto px-5 sm:px-8">
             <div className="grid md:grid-cols-2 gap-16">
               <div>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-6 h-px" style={{ background: "#f97316" }} />
-                  <span className="font-satoshi text-[11px] tracking-[0.2em] uppercase text-[#f97316]">
+                  <div className="w-6 h-px" style={{ background: "#F97316" }} />
+                  <span
+                    className="font-mono uppercase"
+                    style={{ fontSize: "11px", letterSpacing: "0.2em", color: "#F97316" }}
+                  >
                     Our Story
                   </span>
                 </div>
                 <h2
-                  className="font-clash font-bold leading-tight mb-6"
+                  className="font-serif leading-tight mb-6"
                   style={{
                     fontSize: "clamp(2rem, 4vw, 3rem)",
-                    letterSpacing: "-0.04em",
-                    color: "#111111",
+                    letterSpacing: "-0.02em",
+                    color: "#FFFFFF",
+                    fontStyle: "italic",
                   }}
                 >
                   Built for
@@ -151,54 +163,56 @@ export default function AboutPage() {
               </div>
 
               <div className="space-y-6">
-                <p
-                  className="font-satoshi text-base leading-relaxed"
-                  style={{ color: "#838282" }}
-                >
-                  RRR stands for what every HVAC call really is: <strong style={{ color: "#111111" }}>Rescue, Repair, Replace.</strong> Whether your furnace quit at midnight or your AC is struggling through a South Dakota summer, we show up fast and fix it right.
+                <p className="font-body text-base leading-relaxed" style={{ color: "#64748B" }}>
+                  RRR stands for what every HVAC call really is:{" "}
+                  <strong style={{ color: "#FFFFFF" }}>Rescue, Repair, Replace.</strong> Whether
+                  your furnace quit at midnight or your AC is struggling through a South Dakota
+                  summer, we show up fast and fix it right.
                 </p>
-                <p
-                  className="font-satoshi text-base leading-relaxed"
-                  style={{ color: "#838282" }}
-                >
-                  Mike started RRR HVAC Rescue LLC because he saw too many homeowners getting burned by big companies — long wait times, vague pricing, and technicians who barely explained what they'd done. He set out to do it differently.
+                <p className="font-body text-base leading-relaxed" style={{ color: "#64748B" }}>
+                  Mike started RRR HVAC Rescue LLC because he saw too many homeowners getting
+                  burned by big companies — long wait times, vague pricing, and technicians who
+                  barely explained what they&apos;d done. He set out to do it differently.
                 </p>
-                <p
-                  className="font-satoshi text-base leading-relaxed"
-                  style={{ color: "#838282" }}
-                >
-                  Today, RRR HVAC serves Watertown and the surrounding area with the kind of service you&apos;d expect from someone who actually cares about this community. No call centers. No upsells. Just honest HVAC work done right.
+                <p className="font-body text-base leading-relaxed" style={{ color: "#64748B" }}>
+                  Today, RRR HVAC serves Watertown and the surrounding area with the kind of
+                  service you&apos;d expect from someone who actually cares about this community.
+                  No call centers. No upsells. Just honest HVAC work done right.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── Values ───────────────────────────────────────────────────────── */}
+        {/* Values */}
         <section
           className="py-20 sm:py-28"
-          style={{ background: "#111111", borderBottom: "1px solid #1e1e1e" }}
+          style={{ background: "#0a0a0a", borderBottom: "1px solid rgba(255,255,255,0.06)" }}
         >
           <div className="max-w-7xl mx-auto px-5 sm:px-8">
             <div className="flex items-center gap-3 mb-12">
-              <div className="w-6 h-px" style={{ background: "#f97316" }} />
-              <span className="font-satoshi text-[11px] tracking-[0.2em] uppercase text-[#f97316]">
+              <div className="w-6 h-px" style={{ background: "#F97316" }} />
+              <span
+                className="font-mono uppercase"
+                style={{ fontSize: "11px", letterSpacing: "0.2em", color: "#F97316" }}
+              >
                 Our Standards
               </span>
             </div>
 
             <h2
-              className="font-clash font-bold leading-none mb-14"
+              className="font-serif leading-none mb-14"
               style={{
                 fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
-                letterSpacing: "-0.04em",
-                color: "#ffffff",
+                letterSpacing: "-0.02em",
+                color: "#FFFFFF",
+                fontStyle: "italic",
               }}
             >
               How We Work
             </h2>
 
-            <div className="grid sm:grid-cols-2 gap-px" style={{ background: "#2a2a2a" }}>
+            <div className="grid sm:grid-cols-2 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
               {values.map((v, i) => (
                 <div
                   key={v.title}
@@ -206,19 +220,19 @@ export default function AboutPage() {
                   style={{ background: i % 2 === 0 ? "#141414" : "#0f0f0f" }}
                 >
                   <div
-                    className="font-clash font-bold text-4xl leading-none mb-4 select-none"
-                    style={{ color: "#2a2a2a", letterSpacing: "-0.04em" }}
+                    className="font-serif text-4xl leading-none mb-4 select-none"
+                    style={{ color: "rgba(255,255,255,0.06)", letterSpacing: "-0.04em", fontStyle: "italic" }}
                     aria-hidden="true"
                   >
                     {String(i + 1).padStart(2, "0")}
                   </div>
                   <h3
-                    className="font-clash font-bold text-xl leading-tight mb-3"
-                    style={{ color: "#ffffff", letterSpacing: "-0.02em" }}
+                    className="font-serif text-xl leading-tight mb-3"
+                    style={{ color: "#FFFFFF", fontStyle: "italic" }}
                   >
                     {v.title}
                   </h3>
-                  <p className="font-satoshi text-sm leading-relaxed" style={{ color: "#838282" }}>
+                  <p className="font-body text-sm leading-relaxed" style={{ color: "#64748B" }}>
                     {v.desc}
                   </p>
                 </div>
@@ -227,23 +241,30 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── Service area ─────────────────────────────────────────────────── */}
-        <section className="py-20 sm:py-28" style={{ borderBottom: "1px solid #e2e2e2" }}>
+        {/* Service area */}
+        <section
+          className="py-20 sm:py-28"
+          style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
+        >
           <div className="max-w-7xl mx-auto px-5 sm:px-8">
             <div className="grid md:grid-cols-2 gap-16 items-center">
               <div>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-6 h-px" style={{ background: "#f97316" }} />
-                  <span className="font-satoshi text-[11px] tracking-[0.2em] uppercase text-[#f97316]">
+                  <div className="w-6 h-px" style={{ background: "#F97316" }} />
+                  <span
+                    className="font-mono uppercase"
+                    style={{ fontSize: "11px", letterSpacing: "0.2em", color: "#F97316" }}
+                  >
                     Where We Work
                   </span>
                 </div>
                 <h2
-                  className="font-clash font-bold leading-none mb-6"
+                  className="font-serif leading-none mb-6"
                   style={{
                     fontSize: "clamp(2rem, 4vw, 3rem)",
-                    letterSpacing: "-0.04em",
-                    color: "#111111",
+                    letterSpacing: "-0.02em",
+                    color: "#FFFFFF",
+                    fontStyle: "italic",
                   }}
                 >
                   Watertown &amp;
@@ -251,22 +272,31 @@ export default function AboutPage() {
                   Surrounding Area
                 </h2>
                 <p
-                  className="font-satoshi text-base leading-relaxed mb-8"
-                  style={{ color: "#838282", maxWidth: "400px" }}
+                  className="font-body text-base leading-relaxed mb-8"
+                  style={{ color: "#64748B", maxWidth: "400px" }}
                 >
                   RRR HVAC serves Watertown, SD and the surrounding communities. Not sure if we
                   cover your area? Call us — if we can get there, we will.
                 </p>
                 <a
                   href="tel:6058815622"
-                  className="inline-flex items-center gap-3 font-satoshi font-bold text-sm px-7 py-3.5 rounded-full transition-all duration-150 hover:opacity-90"
-                  style={{ background: "#111111", color: "#ffffff" }}
+                  className="font-mono uppercase inline-flex items-center gap-3"
+                  style={{
+                    fontSize: "12px",
+                    letterSpacing: "0.1em",
+                    padding: "14px 28px",
+                    borderRadius: "999px",
+                    background: "#F97316",
+                    color: "#000000",
+                    textDecoration: "none",
+                    fontWeight: 600,
+                  }}
                 >
                   Call (605) 881-5622
                 </a>
               </div>
 
-              <div className="space-y-px" style={{ background: "#e2e2e2" }}>
+              <div className="space-y-px" style={{ background: "rgba(255,255,255,0.06)" }}>
                 {[
                   "Watertown, SD (Primary)",
                   "Codington County",
@@ -278,15 +308,24 @@ export default function AboutPage() {
                   <div
                     key={area}
                     className="px-6 py-4 flex items-center justify-between"
-                    style={{ background: i % 2 === 0 ? "#f2f2f2" : "#ffffff" }}
+                    style={{ background: i % 2 === 0 ? "#141414" : "#0f0f0f" }}
                   >
-                    <span className="font-satoshi text-sm font-medium" style={{ color: i === 0 ? "#111111" : "#838282" }}>
+                    <span
+                      className="font-body text-sm font-medium"
+                      style={{ color: i === 0 ? "#FFFFFF" : "#64748B" }}
+                    >
                       {area}
                     </span>
                     {i === 0 && (
                       <span
-                        className="font-satoshi text-[10px] tracking-[0.12em] uppercase px-2.5 py-1"
-                        style={{ border: "1px solid #f97316", color: "#f97316" }}
+                        className="font-mono uppercase"
+                        style={{
+                          fontSize: "10px",
+                          letterSpacing: "0.12em",
+                          padding: "4px 10px",
+                          border: "1px solid #F97316",
+                          color: "#F97316",
+                        }}
                       >
                         Home Base
                       </span>
@@ -298,24 +337,25 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── CTA ──────────────────────────────────────────────────────────── */}
+        {/* CTA */}
         <section
           className="py-20 sm:py-28"
-          style={{ background: "#f97316" }}
+          style={{ background: "#F97316" }}
         >
           <div className="max-w-7xl mx-auto px-5 sm:px-8 text-center">
             <h2
-              className="font-clash font-bold leading-none mb-6"
+              className="font-serif leading-none mb-6"
               style={{
                 fontSize: "clamp(2.4rem, 5vw, 4rem)",
-                letterSpacing: "-0.04em",
-                color: "#ffffff",
+                letterSpacing: "-0.02em",
+                color: "#FFFFFF",
+                fontStyle: "italic",
               }}
             >
               Ready to Get Started?
             </h2>
             <p
-              className="font-satoshi text-lg leading-relaxed mb-10 mx-auto"
+              className="font-body text-lg leading-relaxed mb-10 mx-auto"
               style={{ color: "rgba(255,255,255,0.8)", maxWidth: "480px" }}
             >
               Call Mike directly or send a message. For heating and cooling emergencies, we pick
@@ -324,15 +364,31 @@ export default function AboutPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:6058815622"
-                className="inline-flex items-center justify-center gap-3 font-satoshi font-bold text-base px-8 py-4 rounded-full transition-all duration-150 hover:bg-[#111111]"
-                style={{ background: "#ffffff", color: "#f97316" }}
+                className="font-mono uppercase inline-flex items-center justify-center gap-3"
+                style={{
+                  fontSize: "12px",
+                  letterSpacing: "0.1em",
+                  padding: "16px 32px",
+                  borderRadius: "999px",
+                  background: "#000000",
+                  color: "#FFFFFF",
+                  textDecoration: "none",
+                }}
               >
                 Call (605) 881-5622
               </a>
               <a
                 href="/#contact"
-                className="inline-flex items-center justify-center gap-2 font-satoshi font-medium text-base px-8 py-4 rounded-full transition-all duration-150"
-                style={{ border: "1px solid rgba(255,255,255,0.5)", color: "#ffffff" }}
+                className="font-mono uppercase inline-flex items-center justify-center gap-2"
+                style={{
+                  fontSize: "12px",
+                  letterSpacing: "0.1em",
+                  padding: "16px 32px",
+                  borderRadius: "999px",
+                  border: "1px solid rgba(255,255,255,0.5)",
+                  color: "#FFFFFF",
+                  textDecoration: "none",
+                }}
               >
                 Request Service Online
               </a>

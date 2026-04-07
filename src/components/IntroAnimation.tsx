@@ -88,7 +88,7 @@ export default function IntroAnimation() {
         className="absolute top-0 left-0 right-0"
         style={{
           height: "50%",
-          background: "#111111",
+          background: "#080808",
         }}
       />
 
@@ -98,7 +98,7 @@ export default function IntroAnimation() {
         className="absolute bottom-0 left-0 right-0"
         style={{
           height: "50%",
-          background: "#111111",
+          background: "#080808",
         }}
       />
 
