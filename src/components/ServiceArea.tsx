@@ -11,10 +11,17 @@ export default function ServiceArea() {
   return (
     <section style={{ background: "#080808", padding: "5rem 0" }}>
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-16 items-start">
           {/* Left: copy */}
           <div>
-            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.75rem",
+                marginBottom: "1.5rem",
+              }}
+            >
               <div style={{ width: "24px", height: "1px", background: "#F97316" }} />
               <span
                 className="font-mono uppercase"
@@ -50,12 +57,20 @@ export default function ServiceArea() {
                 marginBottom: "2rem",
               }}
             >
-              RRR HVAC Rescue LLC primarily serves Watertown, SD and the surrounding communities.
-              Not sure if we cover your area? Give us a call — if we can get there, we will.
+              RRR HVAC Rescue LLC is based in Watertown, SD and serves the surrounding
+              communities. If you&apos;re not sure whether we cover your area, give us a call —
+              if we can get there, we will.
             </p>
 
             {/* County tags */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginBottom: "2.5rem" }}>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "0.5rem",
+                marginBottom: "2.5rem",
+              }}
+            >
               {counties.map((county) => (
                 <span
                   key={county}
@@ -85,14 +100,15 @@ export default function ServiceArea() {
                 border: "1px solid rgba(255,255,255,0.2)",
                 color: "#FFFFFF",
                 textDecoration: "none",
-                transition: "border-color 0.15s, background 0.15s",
+                transition: "border-color 0.15s, color 0.15s",
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLAnchorElement).style.borderColor = "#F97316";
                 (e.currentTarget as HTMLAnchorElement).style.color = "#F97316";
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.2)";
+                (e.currentTarget as HTMLAnchorElement).style.borderColor =
+                  "rgba(255,255,255,0.2)";
                 (e.currentTarget as HTMLAnchorElement).style.color = "#FFFFFF";
               }}
             >
@@ -100,47 +116,81 @@ export default function ServiceArea() {
             </a>
           </div>
 
-          {/* Right: map */}
+          {/* Right: interactive Google Maps embed */}
           <div style={{ position: "relative" }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/service-area-map.png"
-              alt="RRR HVAC service area map — Watertown, SD"
-              style={{
-                width: "100%",
-                height: "auto",
-                display: "block",
-                borderRadius: "1rem",
-                border: "1px solid rgba(255,255,255,0.1)",
-                boxShadow: "0 24px 64px rgba(0,0,0,0.4)",
-              }}
-            />
-            {/* Map label overlay */}
+            {/* Premium frame */}
             <div
               style={{
-                position: "absolute",
-                top: "1rem",
-                left: "1rem",
-                background: "rgba(8,8,8,0.8)",
+                borderRadius: "1rem",
+                overflow: "hidden",
                 border: "1px solid rgba(255,255,255,0.1)",
-                borderRadius: "0.5rem",
-                backdropFilter: "blur(8px)",
-                padding: "6px 12px",
-                display: "flex",
-                alignItems: "center",
-                gap: "6px",
+                boxShadow: "0 24px 64px rgba(0,0,0,0.5)",
+                position: "relative",
               }}
             >
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="#F97316">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-              </svg>
-              <span
-                className="font-mono"
-                style={{ fontSize: "9px", letterSpacing: "0.12em", color: "#E2E8F0", textTransform: "uppercase" }}
+              {/* Map label bar */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "1rem",
+                  left: "1rem",
+                  zIndex: 10,
+                  background: "rgba(8,8,8,0.85)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  borderRadius: "0.5rem",
+                  backdropFilter: "blur(8px)",
+                  padding: "6px 12px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "6px",
+                }}
               >
-                Watertown, SD
-              </span>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="#F97316">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+                <span
+                  className="font-mono"
+                  style={{
+                    fontSize: "9px",
+                    letterSpacing: "0.12em",
+                    color: "#E2E8F0",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Watertown, SD
+                </span>
+              </div>
+
+              <iframe
+                title="RRR HVAC Service Area — Watertown, SD"
+                src="https://maps.google.com/maps?q=Watertown,+South+Dakota,+USA&t=m&z=11&ie=UTF8&iwloc=near&output=embed"
+                width="100%"
+                height="440"
+                style={{
+                  display: "block",
+                  border: "none",
+                  filter: "grayscale(0.25) brightness(0.92)",
+                }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
             </div>
+
+            {/* Caption below map */}
+            <p
+              className="font-mono"
+              style={{
+                fontSize: "10px",
+                letterSpacing: "0.1em",
+                color: "#64748B",
+                textTransform: "uppercase",
+                marginTop: "1rem",
+                textAlign: "center",
+              }}
+            >
+              Primary coverage: Watertown &amp; surrounding counties
+            </p>
           </div>
         </div>
       </div>

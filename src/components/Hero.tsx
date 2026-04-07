@@ -10,8 +10,7 @@ export default function Hero() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
-  const badgesRef = useRef<HTMLDivElement>(null);
-  const glassCardRef = useRef<HTMLDivElement>(null);
+  const trustRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -42,16 +41,10 @@ export default function Hero() {
         "-=0.35"
       )
       .fromTo(
-        badgesRef.current,
+        trustRef.current,
         { opacity: 0, y: 8 },
         { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" },
         "-=0.25"
-      )
-      .fromTo(
-        glassCardRef.current,
-        { opacity: 0, y: 12 },
-        { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
-        "-=0.2"
       );
 
     return () => { tl.kill(); };
@@ -209,80 +202,19 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Trust badges */}
-        <div
-          ref={badgesRef}
-          style={{
-            opacity: 0,
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "1.5rem",
-          }}
-        >
-          {["★★★★★ 5.0 RATED", "LICENSED & INSURED", "TRANE EQUIPMENT", "EMERGENCY AVAILABLE"].map(
-            (badge) => (
-              <span
-                key={badge}
-                className="font-mono"
-                style={{ fontSize: "10px", letterSpacing: "0.1em", color: "#64748B" }}
-              >
-                {badge}
-              </span>
-            )
-          )}
-        </div>
-
-        {/* Spacer to push glass card to bottom */}
-        <div style={{ flex: 1 }} />
-
-        {/* Glass stats card */}
-        <div
-          ref={glassCardRef}
-          style={{
-            opacity: 0,
-            background: "rgba(255,255,255,0.05)",
-            border: "1px solid rgba(255,255,255,0.1)",
-            borderRadius: "1rem",
-            backdropFilter: "blur(12px)",
-            padding: "1.25rem 1.75rem",
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "1.5rem",
-            alignItems: "center",
-          }}
-        >
-          {[
-            { value: "5.0★", label: "Avg Rating" },
-            { value: "Same-Day", label: "Emergency" },
-            { value: "All Makes", label: "& Models" },
-            { value: "Watertown", label: "SD" },
-          ].map((stat, i) => (
-            <div key={stat.label} style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-              <div>
-                <div
-                  className="font-mono"
-                  style={{ fontSize: "13px", color: "#FFFFFF", letterSpacing: "0.05em" }}
-                >
-                  {stat.value}
-                </div>
-                <div
-                  className="font-mono"
-                  style={{ fontSize: "9px", color: "#64748B", letterSpacing: "0.1em", textTransform: "uppercase" }}
-                >
-                  {stat.label}
-                </div>
-              </div>
-              {i < 3 && (
-                <div
-                  style={{
-                    width: "1px",
-                    height: "28px",
-                    background: "rgba(255,255,255,0.12)",
-                  }}
-                />
-              )}
-            </div>
-          ))}
+        {/* Single restrained trust line */}
+        <div ref={trustRef} style={{ opacity: 0 }}>
+          <span
+            className="font-mono"
+            style={{
+              fontSize: "10px",
+              letterSpacing: "0.12em",
+              color: "#64748B",
+              textTransform: "uppercase",
+            }}
+          >
+            Watertown, SD&nbsp;&nbsp;·&nbsp;&nbsp;Honest Service&nbsp;&nbsp;·&nbsp;&nbsp;Trane Equipment&nbsp;&nbsp;·&nbsp;&nbsp;Emergency Available
+          </span>
         </div>
       </div>
 
