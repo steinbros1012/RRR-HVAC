@@ -97,7 +97,7 @@ export default function WorkGrid() {
             className="font-body"
             style={{ fontSize: "0.9375rem", color: "#94A3B8", maxWidth: "320px", lineHeight: 1.65 }}
           >
-            Two recent RRR HVAC jobs, each shown from multiple angles so customers can see the quality and finish work clearly.
+            Recent RRR HVAC work in Watertown, South Dakota.
           </p>
         </div>
 
