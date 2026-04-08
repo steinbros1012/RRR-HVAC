@@ -66,6 +66,14 @@ body {
   border-radius: 2px;
 }
 
+/* ─── Focus styles (keyboard nav) ──────────────────────────────────────── */
+
+:focus-visible {
+  outline: 2px solid #F97316;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 /* ─── Reduced motion ────────────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {

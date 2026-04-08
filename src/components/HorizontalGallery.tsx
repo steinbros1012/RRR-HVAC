@@ -110,7 +110,7 @@ export default function HorizontalGallery() {
           </div>
           <span
             className="font-mono uppercase"
-            style={{ fontSize: "11px", letterSpacing: "0.15em", color: "#64748B" }}
+            style={{ fontSize: "11px", letterSpacing: "0.15em", color: "#94A3B8" }}
           >
             Scroll →
           </span>
@@ -134,14 +134,14 @@ export default function HorizontalGallery() {
                   <div className="flex items-center gap-3 mb-8">
                     <span
                       className="font-mono font-semibold text-4xl leading-none"
-                      style={{ color: "rgba(255,255,255,0.08)", letterSpacing: "-0.04em" }}
+                      style={{ color: "rgba(255,255,255,0.14)", letterSpacing: "-0.04em" }}
                     >
                       {panel.step}
                     </span>
                     <div className="w-8 h-px" style={{ background: "rgba(255,255,255,0.08)" }} />
                     <span
                       className="font-mono uppercase"
-                      style={{ fontSize: "10px", letterSpacing: "0.15em", color: "#64748B" }}
+                      style={{ fontSize: "10px", letterSpacing: "0.15em", color: "#94A3B8" }}
                     >
                       Step {panel.step}
                     </span>
@@ -162,7 +162,7 @@ export default function HorizontalGallery() {
 
                   <p
                     className="font-body text-base leading-relaxed"
-                    style={{ color: "#64748B" }}
+                    style={{ color: "#94A3B8" }}
                   >
                     {panel.desc}
                   </p>
@@ -213,7 +213,7 @@ export default function HorizontalGallery() {
               <div className="flex items-center gap-3 mb-4">
                 <span
                   className="font-mono font-semibold text-3xl leading-none"
-                  style={{ color: "rgba(255,255,255,0.08)", letterSpacing: "-0.04em" }}
+                  style={{ color: "rgba(255,255,255,0.14)", letterSpacing: "-0.04em" }}
                 >
                   {panel.step}
                 </span>
@@ -224,7 +224,7 @@ export default function HorizontalGallery() {
               >
                 {panel.title}
               </h3>
-              <p className="font-body text-sm leading-relaxed" style={{ color: "#64748B" }}>
+              <p className="font-body text-sm leading-relaxed" style={{ color: "#94A3B8" }}>
                 {panel.desc}
               </p>
             </div>

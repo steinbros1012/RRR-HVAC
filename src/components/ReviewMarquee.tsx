@@ -148,7 +148,7 @@ export default function ReviewMarquee() {
             <span className="font-mono font-semibold text-lg ml-1" style={{ color: "#FFFFFF" }}>
               5.0
             </span>
-            <span className="font-body text-sm" style={{ color: "#64748B" }}>
+            <span className="font-body text-sm" style={{ color: "#94A3B8" }}>
               / 5.0
             </span>
           </div>

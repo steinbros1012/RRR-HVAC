@@ -66,9 +66,9 @@ export default function Navbar() {
               key={l.label}
               href={l.href}
               className="font-mono uppercase transition-colors duration-150"
-              style={{ fontSize: "11px", letterSpacing: "0.1em", color: "#64748B" }}
+              style={{ fontSize: "11px", letterSpacing: "0.1em", color: "#94A3B8" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "#FFFFFF")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#64748B")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "#94A3B8")}
             >
               {l.label}
             </a>
@@ -82,7 +82,7 @@ export default function Navbar() {
           style={{
             fontSize: "11px",
             letterSpacing: "0.1em",
-            padding: "8px 20px",
+            padding: "11px 22px",
             borderRadius: "999px",
             border: "1px solid #F97316",
             color: "#F97316",
@@ -140,11 +140,11 @@ export default function Navbar() {
               key={l.label}
               href={l.href}
               onClick={() => setMenuOpen(false)}
-              className="block py-3 font-mono uppercase"
+              className="block py-4 font-mono uppercase"
               style={{
-                fontSize: "11px",
+                fontSize: "12px",
                 letterSpacing: "0.1em",
-                color: "#64748B",
+                color: "#E2E8F0",
                 borderBottom: "1px solid rgba(255,255,255,0.06)",
               }}
             >

@@ -54,7 +54,7 @@ export default function Footer() {
             </div>
             <p
               className="font-body text-sm leading-relaxed max-w-xs mb-6"
-              style={{ color: "#64748B" }}
+              style={{ color: "#94A3B8" }}
             >
               Watertown&apos;s trusted heating and cooling experts. Fast, honest, local HVAC
               service you can count on.
@@ -89,7 +89,7 @@ export default function Footer() {
           <div>
             <div
               className="font-mono uppercase mb-5"
-              style={{ fontSize: "10px", letterSpacing: "0.2em", color: "#64748B" }}
+              style={{ fontSize: "10px", letterSpacing: "0.2em", color: "#94A3B8" }}
             >
               Navigation
             </div>
@@ -99,9 +99,9 @@ export default function Footer() {
                   <a
                     href={l.href}
                     className="font-body text-sm transition-colors duration-150"
-                    style={{ color: "#64748B", textDecoration: "none" }}
+                    style={{ color: "#94A3B8", textDecoration: "none" }}
                     onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#FFFFFF")}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#64748B")}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#94A3B8")}
                   >
                     {l.label}
                   </a>
@@ -114,7 +114,7 @@ export default function Footer() {
           <div>
             <div
               className="font-mono uppercase mb-5"
-              style={{ fontSize: "10px", letterSpacing: "0.2em", color: "#64748B" }}
+              style={{ fontSize: "10px", letterSpacing: "0.2em", color: "#94A3B8" }}
             >
               Services
             </div>
@@ -124,9 +124,9 @@ export default function Footer() {
                   <a
                     href="#services"
                     className="font-body text-sm transition-colors duration-150"
-                    style={{ color: "#64748B", textDecoration: "none" }}
+                    style={{ color: "#94A3B8", textDecoration: "none" }}
                     onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#FFFFFF")}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#64748B")}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#94A3B8")}
                   >
                     {s}
                   </a>
@@ -137,10 +137,10 @@ export default function Footer() {
         </div>
 
         <div className="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <div className="font-body" style={{ fontSize: "11px", color: "#64748B" }}>
+          <div className="font-body" style={{ fontSize: "11px", color: "#94A3B8" }}>
             © {new Date().getFullYear()} RRR HVAC Rescue LLC · Watertown, South Dakota
           </div>
-          <div className="font-body" style={{ fontSize: "11px", color: "#64748B" }}>
+          <div className="font-body" style={{ fontSize: "11px", color: "#94A3B8" }}>
             Licensed &amp; Insured · All Makes &amp; Models
           </div>
         </div>

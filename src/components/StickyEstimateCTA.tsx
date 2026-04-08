@@ -16,7 +16,15 @@ export default function StickyEstimateCTA() {
     <a
       href="#contact"
       aria-label="Request a free estimate"
-      className="fixed z-40 transition-all duration-300"
+      className="fixed z-40"
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLAnchorElement).style.transform = visible ? "translateY(-2px)" : "translateY(12px)";
+        (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 8px 32px rgba(249,115,22,0.5)";
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLAnchorElement).style.transform = visible ? "translateY(0)" : "translateY(12px)";
+        (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 24px rgba(249,115,22,0.35)";
+      }}
       style={{
         bottom: "28px",
         right: "24px",
@@ -31,12 +39,13 @@ export default function StickyEstimateCTA() {
         opacity: visible ? 1 : 0,
         pointerEvents: visible ? "auto" : "none",
         transform: visible ? "translateY(0)" : "translateY(12px)",
-        fontFamily: "'Satoshi', sans-serif",
+        fontFamily: "'Inter', sans-serif",
         fontWeight: 700,
         fontSize: "13px",
         letterSpacing: "0.04em",
         textDecoration: "none",
         whiteSpace: "nowrap",
+        transition: "opacity 0.3s, transform 0.3s, box-shadow 0.2s",
       }}
     >
       <svg

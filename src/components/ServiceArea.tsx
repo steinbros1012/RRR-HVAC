@@ -51,7 +51,7 @@ export default function ServiceArea() {
               className="font-body"
               style={{
                 fontSize: "1rem",
-                color: "#64748B",
+                color: "#94A3B8",
                 lineHeight: 1.7,
                 maxWidth: "420px",
                 marginBottom: "2rem",
@@ -183,7 +183,7 @@ export default function ServiceArea() {
               style={{
                 fontSize: "10px",
                 letterSpacing: "0.1em",
-                color: "#64748B",
+                color: "#94A3B8",
                 textTransform: "uppercase",
                 marginTop: "1rem",
                 textAlign: "center",

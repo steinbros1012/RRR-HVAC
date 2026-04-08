@@ -295,7 +295,7 @@ export default function Services() {
                       className="font-body"
                       style={{
                         fontSize: "0.8125rem",
-                        color: "rgba(100,116,139,0.75)",
+                        color: "#94A3B8",
                         lineHeight: 1.5,
                       }}
                     >
