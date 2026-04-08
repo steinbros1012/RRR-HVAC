@@ -100,7 +100,7 @@ function ReviewCard({ review }: { review: (typeof reviews)[0] }) {
 }
 
 export default function ReviewMarquee() {
-  const tripled = [...reviews, ...reviews, ...reviews];
+  const doubled = [...reviews, ...reviews];
 
   return (
     <section
@@ -168,7 +168,7 @@ export default function ReviewMarquee() {
         />
 
         <div className="flex animate-marquee-fast">
-          {tripled.map((review, i) => (
+          {doubled.map((review, i) => (
             <ReviewCard key={`${review.name}-${i}`} review={review} />
           ))}
         </div>

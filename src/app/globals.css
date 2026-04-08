@@ -87,13 +87,13 @@ body {
 
 /* ─── Marquee animation ─────────────────────────────────────────────────── */
 
-/* Tripled content → -33.333% scrolls exactly one full set */
+/* Doubled content → -50% scrolls exactly one full set, resets invisibly */
 @keyframes marquee {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-33.333%);
+    transform: translateX(-50%);
   }
 }
 
