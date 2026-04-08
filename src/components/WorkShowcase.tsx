@@ -5,21 +5,25 @@ const photos = [
     src: "/basement-install-photo.png",
     alt: "Basement HVAC installation in Watertown, SD",
     caption: "Basement Install",
+    objectPosition: "center top",
   },
   {
     src: "/furnace-install-finished.png",
     alt: "Completed furnace installation",
     caption: "Furnace Install",
+    objectPosition: "center center",
   },
   {
     src: "/gas-meter-and-venting.png",
     alt: "Gas meter and venting setup",
     caption: "Gas & Venting",
+    objectPosition: "center center",
   },
   {
     src: "/exterior-vent-pipes.png",
     alt: "Exterior vent pipe installation",
     caption: "Exterior Venting",
+    objectPosition: "center center",
   },
 ];
 
@@ -88,51 +92,52 @@ export default function WorkShowcase() {
           />
         </div>
 
-        {/* 2×2 grid — contain so every photo is fully visible */}
+        {/* 4-column portrait strip — cells are tall like the photos, cover fills edge-to-edge */}
         <div
-          className="grid grid-cols-1 sm:grid-cols-2"
+          className="grid grid-cols-2 md:grid-cols-4"
           style={{ gap: "3px" }}
         >
           {photos.map((photo, i) => (
             <div
               key={photo.src}
-              style={{
-                background: "#0d0d0d",
-                border: "1px solid rgba(255,255,255,0.06)",
-                position: "relative",
-                display: "flex",
-                flexDirection: "column",
-              }}
+              style={{ position: "relative", overflow: "hidden" }}
             >
-              {/* Photo — contain at fixed height, no padding, no whitespace */}
-              <div
+              {/* Photo — cover in a portrait cell so no blank space */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={photo.src}
+                alt={photo.alt}
                 style={{
-                  background: "#111111",
-                  height: "400px",
-                  overflow: "hidden",
+                  width: "100%",
+                  height: "clamp(280px, 36vw, 520px)",
+                  objectFit: "cover",
+                  objectPosition: photo.objectPosition,
+                  display: "block",
                 }}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={photo.src}
-                  alt={photo.alt}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "contain",
-                    display: "block",
-                  }}
-                />
-              </div>
+              />
 
-              {/* Caption strip */}
+              {/* Bottom gradient for caption legibility */}
               <div
                 style={{
-                  padding: "0.875rem 1.25rem",
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  height: "90px",
+                  background: "linear-gradient(to top, rgba(8,8,8,0.82) 0%, transparent 100%)",
+                  pointerEvents: "none",
+                }}
+              />
+
+              {/* Caption */}
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "1rem",
+                  left: "1rem",
                   display: "flex",
                   alignItems: "center",
-                  gap: "0.75rem",
-                  borderTop: "1px solid rgba(255,255,255,0.06)",
+                  gap: "0.5rem",
                 }}
               >
                 <span
@@ -146,17 +151,17 @@ export default function WorkShowcase() {
                 >
                   0{i + 1}
                 </span>
-                <div style={{ width: "20px", height: "1px", background: "rgba(255,255,255,0.15)" }} />
+                <div style={{ width: "16px", height: "1px", background: "rgba(255,255,255,0.3)" }} />
                 <span
                   className="font-mono"
                   style={{
-                    fontSize: "10px",
+                    fontSize: "9px",
                     letterSpacing: "0.14em",
-                    color: "#94A3B8",
+                    color: "rgba(255,255,255,0.75)",
                     textTransform: "uppercase",
                   }}
                 >
-                  {photo.caption} — Watertown, SD
+                  {photo.caption}
                 </span>
               </div>
             </div>
