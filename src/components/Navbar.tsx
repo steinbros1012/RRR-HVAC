@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 const PHONE = "(605) 881-5622";
 
 const links = [
+  { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Gallery", href: "/gallery" },
   { label: "About", href: "/about" },

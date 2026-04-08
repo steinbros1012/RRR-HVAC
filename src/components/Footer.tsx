@@ -4,6 +4,7 @@ const PHONE = "(605) 881-5622";
 
 export default function Footer() {
   const links = [
+    { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
     { label: "Gallery", href: "/gallery" },
     { label: "About", href: "/about" },
