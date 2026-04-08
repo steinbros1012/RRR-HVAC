@@ -34,7 +34,7 @@ export default function CTABanner() {
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
             <a
               href={`tel:${PHONE.replace(/\D/g, "")}`}
-              className="font-mono uppercase font-semibold flex items-center justify-between"
+              className="font-mono uppercase font-semibold flex items-center justify-between transition-opacity duration-150 hover:opacity-[0.85]"
               style={{
                 fontSize: "13px",
                 letterSpacing: "0.1em",
@@ -43,10 +43,7 @@ export default function CTABanner() {
                 color: "#000000",
                 textDecoration: "none",
                 borderRadius: "2px",
-                transition: "opacity 0.15s",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
             >
               <span>Call {PHONE}</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -55,7 +52,7 @@ export default function CTABanner() {
             </a>
             <a
               href="/contact"
-              className="font-mono uppercase font-semibold flex items-center justify-between"
+              className="font-mono uppercase font-semibold flex items-center justify-between transition-[border-color,background-color] duration-150 hover:border-white/35 hover:bg-white/[0.04]"
               style={{
                 fontSize: "13px",
                 letterSpacing: "0.1em",
@@ -64,15 +61,6 @@ export default function CTABanner() {
                 color: "#FFFFFF",
                 textDecoration: "none",
                 borderRadius: "2px",
-                transition: "border-color 0.15s, background 0.15s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.35)";
-                e.currentTarget.style.background = "rgba(255,255,255,0.04)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)";
-                e.currentTarget.style.background = "transparent";
               }}
             >
               <span>Request a Free Estimate</span>

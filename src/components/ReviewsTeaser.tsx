@@ -56,10 +56,8 @@ export default function ReviewsTeaser() {
             </div>
             <a
               href="/reviews"
-              className="font-mono uppercase inline-flex items-center gap-2"
-              style={{ fontSize: "11px", letterSpacing: "0.12em", color: "#94A3B8", textDecoration: "none", borderBottom: "1px solid rgba(255,255,255,0.15)", paddingBottom: "2px", transition: "color 0.15s" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#FFFFFF")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#94A3B8")}
+              className="font-mono uppercase inline-flex items-center gap-2 transition-colors duration-150 hover:text-white"
+              style={{ fontSize: "11px", letterSpacing: "0.12em", color: "#94A3B8", textDecoration: "none", borderBottom: "1px solid rgba(255,255,255,0.15)", paddingBottom: "2px" }}
             >
               All Reviews
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
