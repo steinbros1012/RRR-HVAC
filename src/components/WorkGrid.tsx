@@ -2,35 +2,35 @@
 
 const projects = [
   {
-    src: "/basement-install-photo.png",
-    alt: "Basement HVAC installation",
-    category: "RESIDENTIAL",
-    title: "Basement System Install",
-    desc: "Full ductwork and air handling unit installed in a newly finished basement in Watertown.",
-    objectPosition: "center top",
+    src: "/customer-jobs/img-0017.jpg",
+    alt: "Outdoor condenser installed beside a home in Watertown",
+    category: "COOLING",
+    title: "Outdoor Condenser Install",
+    desc: "One angle from a recent cooling-system install, showing the finished condenser placement and clean exterior setup.",
+    objectPosition: "center center",
   },
   {
-    src: "/furnace-install-finished.png",
-    alt: "Completed furnace installation",
+    src: "/customer-jobs/img-0600.jpg",
+    alt: "Second exterior angle of a newly installed outdoor HVAC condenser",
+    category: "COOLING",
+    title: "Condenser Setup Detail",
+    desc: "A second view of the same job, highlighting the line set, service connections, and tidy finish work at the house.",
+    objectPosition: "center center",
+  },
+  {
+    src: "/customer-jobs/img-0758.jpg",
+    alt: "Indoor furnace and ductwork installation in a basement mechanical area",
     category: "HEATING",
-    title: "Furnace Replacement",
-    desc: "High-efficiency furnace installed with updated venting, gas connections, and new thermostat.",
+    title: "Indoor System Installation",
+    desc: "One angle of a completed indoor install with the furnace, duct transitions, and venting all laid out cleanly.",
     objectPosition: "center center",
   },
   {
-    src: "/gas-meter-and-venting.png",
-    alt: "Gas meter and venting setup",
-    category: "GAS & VENTING",
-    title: "Gas Line & Meter Work",
-    desc: "Gas meter connection and venting setup for a new HVAC system — done clean and to code.",
-    objectPosition: "center center",
-  },
-  {
-    src: "/exterior-vent-pipes.png",
-    alt: "Exterior vent pipe installation",
-    category: "EXTERIOR",
-    title: "Exterior Vent Installation",
-    desc: "PVC exhaust and combustion air intake pipes installed through exterior wall — tight and properly sealed.",
+    src: "/customer-jobs/img-0067.jpg",
+    alt: "Second indoor angle of a RunTru furnace installation with venting and gas line visible",
+    category: "HEATING",
+    title: "Mechanical Room Finish",
+    desc: "A second angle from the install, showing the finished equipment, vent runs, and gas piping inside the mechanical space.",
     objectPosition: "center center",
   },
 ];
@@ -55,7 +55,7 @@ export default function WorkGrid() {
             </h2>
           </div>
           <p className="font-body" style={{ fontSize: "0.9375rem", color: "#94A3B8", maxWidth: "320px", lineHeight: 1.65 }}>
-            Every job completed in Watertown and surrounding South Dakota communities.
+            Recent RRR HVAC work from two different jobs, shown from multiple angles so customers can see the quality for themselves.
           </p>
         </div>
 
