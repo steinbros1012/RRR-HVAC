@@ -116,7 +116,16 @@ export default function Hero() {
 
         {/* Trust line */}
         <div style={{ marginTop: "3rem", paddingTop: "2rem", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-          <p className="font-mono" style={{ fontSize: "10px", letterSpacing: "0.16em", color: "rgba(255,255,255,0.35)", textTransform: "uppercase" }}>
+          <p
+            className="font-mono"
+            style={{
+              fontSize: "10px",
+              letterSpacing: "0.16em",
+              color: "rgba(255,255,255,0.72)",
+              textTransform: "uppercase",
+              textShadow: "0 1px 16px rgba(255,255,255,0.08)",
+            }}
+          >
             Licensed &amp; Insured&nbsp;&nbsp;·&nbsp;&nbsp;All Makes &amp; Models&nbsp;&nbsp;·&nbsp;&nbsp;Trane Equipment Available&nbsp;&nbsp;·&nbsp;&nbsp;Emergency Response
           </p>
         </div>
