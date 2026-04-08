@@ -6,6 +6,7 @@ const PHONE = "(605) 881-5622";
 
 const links = [
   { label: "Services", href: "/services" },
+  { label: "Gallery", href: "/gallery" },
   { label: "About", href: "/about" },
   { label: "Reviews", href: "/reviews" },
   { label: "Contact", href: "/contact" },
