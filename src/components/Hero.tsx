@@ -6,19 +6,19 @@ const PHONE = "(605) 881-5622";
 
 const HERO_IMAGES = [
   {
-    src: "/hero-background-tools.png",
-    objectPosition: "center",
-  },
-  {
-    src: "/furnace-install-finished.png",
+    src: "/customer-jobs/img-0017.jpg",
     objectPosition: "center center",
   },
   {
-    src: "/basement-install-photo.png",
+    src: "/customer-jobs/img-0600.jpg",
     objectPosition: "center center",
   },
   {
-    src: "/gas-meter-and-venting.png",
+    src: "/customer-jobs/img-0758.jpg",
+    objectPosition: "center center",
+  },
+  {
+    src: "/customer-jobs/img-0067.jpg",
     objectPosition: "center center",
   },
 ];
