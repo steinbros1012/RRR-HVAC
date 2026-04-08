@@ -1,11 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
 const cards = [
   {
     number: "01",
@@ -34,95 +28,30 @@ const cards = [
   },
 ];
 
-// Scroll distance allocated per card-to-card transition.
-const SCROLL_PER_STEP = 450;
-const TOTAL_SCROLL = (cards.length - 1) * SCROLL_PER_STEP;
-
 export default function CardSwapSection() {
-  const stickyRef = useRef<HTMLDivElement>(null);
-  const framesRef = useRef<HTMLDivElement>(null);
-  const progressRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    const ctx = gsap.context(() => {
-      const frames = Array.from(
-        framesRef.current?.querySelectorAll<HTMLElement>(".narrative-frame") ?? []
-      );
-      if (frames.length === 0) return;
-
-      gsap.set(frames[0], { opacity: 1, y: 0 });
-      gsap.set(frames.slice(1), { opacity: 0, y: 24 });
-
-      const progressFill = progressRef.current?.querySelector<HTMLElement>(".progress-fill");
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: stickyRef.current,
-          start: "top top",
-          end: `+=${TOTAL_SCROLL}`,
-          pin: true,
-          pinSpacing: true,
-          scrub: 1.2,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            if (progressFill) {
-              progressFill.style.width = `${self.progress * 100}%`;
-            }
-          },
-        },
-      });
-
-      const step = 1 / (cards.length - 1);
-
-      frames.forEach((frame, i) => {
-        if (i === frames.length - 1) return;
-
-        const stepStart = i * step;
-
-        tl.to(
-          frame,
-          {
-            opacity: 0,
-            y: -16,
-            duration: step * 0.45,
-            ease: "power2.inOut",
-          },
-          stepStart + step * 0.55
-        );
-
-        tl.fromTo(
-          frames[i + 1],
-          { opacity: 0, y: 24 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: step * 0.45,
-            ease: "power2.out",
-          },
-          stepStart + step * 0.6
-        );
-      });
-    });
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section id="why">
-      <div
-        ref={stickyRef}
-        className="h-screen overflow-hidden flex flex-col"
-        style={{ background: "#0a0a0a" }}
-      >
-        {/* Top meta row */}
+    <section
+      id="why"
+      style={{
+        background: "#0a0a0a",
+        padding: "6rem 0",
+        borderTop: "1px solid rgba(255,255,255,0.06)",
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+        {/* Header */}
         <div
-          className="flex-shrink-0 flex items-center justify-between px-5 sm:px-8 max-w-7xl mx-auto w-full"
-          style={{ paddingTop: "72px", paddingBottom: "0" }}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginBottom: "3.5rem",
+            flexWrap: "wrap",
+            gap: "1rem",
+          }}
         >
-          <div className="flex items-center gap-3">
-            <div className="w-6 h-px" style={{ background: "#F97316" }} />
+          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+            <div style={{ width: "24px", height: "1px", background: "#F97316" }} />
             <span
               className="font-mono uppercase"
               style={{ fontSize: "11px", letterSpacing: "0.2em", color: "#F97316" }}
@@ -130,147 +59,120 @@ export default function CardSwapSection() {
               Why RRR HVAC
             </span>
           </div>
-          <span
-            className="font-mono uppercase"
-            style={{ fontSize: "11px", letterSpacing: "0.15em", color: "#64748B" }}
+          <h2
+            className="font-serif"
+            style={{
+              fontSize: "clamp(2rem, 4vw, 3rem)",
+              letterSpacing: "-0.02em",
+              color: "#FFFFFF",
+              fontStyle: "italic",
+              lineHeight: 0.92,
+            }}
           >
-            {cards.length} Commitments
-          </span>
+            Five commitments,
+            <br />
+            every single job.
+          </h2>
         </div>
 
-        {/* Card frame area */}
+        {/* Commitments grid */}
         <div
-          ref={framesRef}
-          className="flex-1 relative max-w-7xl mx-auto w-full px-5 sm:px-8"
+          className="grid sm:grid-cols-2 lg:grid-cols-3"
+          style={{
+            borderTop: "1px solid rgba(255,255,255,0.07)",
+            borderLeft: "1px solid rgba(255,255,255,0.07)",
+          }}
         >
           {cards.map((card, i) => (
             <div
               key={card.number}
-              className="narrative-frame absolute inset-0 flex flex-col justify-center"
-              style={{ paddingLeft: 0, paddingRight: 0 }}
-            >
-              {/* Large editorial number */}
-              <div
-                className="font-serif select-none leading-none mb-6"
-                style={{
-                  fontSize: "clamp(5rem, 14vw, 11rem)",
-                  letterSpacing: "-0.05em",
-                  color: "rgba(255,255,255,0.06)",
-                  lineHeight: 1,
-                }}
-                aria-hidden="true"
-              >
-                {card.number}
-              </div>
-
-              {/* Card title */}
-              <h2
-                className="font-serif leading-tight mb-5"
-                style={{
-                  fontSize: "clamp(1.8rem, 4.5vw, 3.5rem)",
-                  letterSpacing: "-0.02em",
-                  color: "#FFFFFF",
-                  maxWidth: "18ch",
-                  fontStyle: "italic",
-                }}
-              >
-                {card.title}
-              </h2>
-
-              {/* Body */}
-              <p
-                className="font-body text-lg leading-relaxed mb-8"
-                style={{ color: "#64748B", maxWidth: "520px" }}
-              >
-                {card.desc}
-              </p>
-
-              {/* CTA on last card */}
-              {i === cards.length - 1 && (
-                <a
-                  href="tel:6058815622"
-                  className="font-mono uppercase inline-flex items-center gap-3"
-                  style={{
-                    fontSize: "12px",
-                    letterSpacing: "0.1em",
-                    padding: "12px 24px",
-                    borderRadius: "999px",
-                    background: "#F97316",
-                    color: "#000000",
-                    textDecoration: "none",
-                    fontWeight: 600,
-                    transition: "opacity 0.15s",
-                    width: "fit-content",
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-                  onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-                >
-                  Get Help Today
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </a>
-              )}
-
-              {/* Counter label */}
-              <div className="mt-auto pb-6 pt-4">
-                <span
-                  className="font-mono"
-                  style={{ fontSize: "11px", letterSpacing: "0.15em", color: "#64748B" }}
-                >
-                  {card.number} / {String(cards.length).padStart(2, "0")}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Progress bar */}
-        <div
-          ref={progressRef}
-          className="flex-shrink-0 max-w-7xl mx-auto w-full px-5 sm:px-8 pb-6"
-        >
-          <div className="h-px w-full relative" style={{ background: "rgba(255,255,255,0.08)" }}>
-            <div
-              className="progress-fill absolute left-0 top-0 h-full transition-none"
-              style={{ background: "#F97316", width: "0%" }}
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile fallback */}
-      <div className="md:hidden py-16 px-5" style={{ background: "#0a0a0a" }}>
-        <div className="flex items-center gap-3 mb-10">
-          <div className="w-6 h-px" style={{ background: "#F97316" }} />
-          <span className="font-mono uppercase" style={{ fontSize: "11px", letterSpacing: "0.2em", color: "#F97316" }}>
-            Why RRR HVAC
-          </span>
-        </div>
-        <div className="space-y-10">
-          {cards.map((card) => (
-            <div
-              key={card.number}
-              className="pb-10 last:border-0"
-              style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
+              style={{
+                padding: "2rem 2rem 2.25rem",
+                borderRight: "1px solid rgba(255,255,255,0.07)",
+                borderBottom: "1px solid rgba(255,255,255,0.07)",
+              }}
             >
               <div
-                className="font-serif text-6xl leading-none mb-4 select-none"
-                style={{ color: "rgba(255,255,255,0.06)", letterSpacing: "-0.05em" }}
+                className="font-mono"
+                style={{
+                  fontSize: "10px",
+                  letterSpacing: "0.18em",
+                  color: "#F97316",
+                  marginBottom: "1.25rem",
+                }}
               >
                 {card.number}
               </div>
               <h3
-                className="font-serif text-2xl leading-tight mb-3"
-                style={{ color: "#FFFFFF", fontStyle: "italic" }}
+                className="font-serif"
+                style={{
+                  fontSize: "clamp(1.15rem, 2vw, 1.35rem)",
+                  color: "#FFFFFF",
+                  fontStyle: "italic",
+                  letterSpacing: "-0.01em",
+                  lineHeight: 1.15,
+                  marginBottom: "0.875rem",
+                }}
               >
                 {card.title}
               </h3>
-              <p className="font-body text-base leading-relaxed" style={{ color: "#64748B" }}>
+              <p
+                className="font-body"
+                style={{
+                  fontSize: "0.875rem",
+                  color: "#94A3B8",
+                  lineHeight: 1.7,
+                }}
+              >
                 {card.desc}
               </p>
             </div>
           ))}
+
+          {/* CTA cell — fills 6th slot in 3-col grid */}
+          <div
+            style={{
+              padding: "2rem 2rem 2.25rem",
+              borderRight: "1px solid rgba(255,255,255,0.07)",
+              borderBottom: "1px solid rgba(255,255,255,0.07)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              background: "rgba(249,115,22,0.04)",
+            }}
+          >
+            <p
+              className="font-body"
+              style={{
+                fontSize: "0.9rem",
+                color: "#94A3B8",
+                lineHeight: 1.6,
+                marginBottom: "1.5rem",
+              }}
+            >
+              Ready to work with someone who does it right?
+            </p>
+            <a
+              href="tel:6058815622"
+              className="font-mono uppercase inline-flex items-center gap-2"
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.1em",
+                padding: "12px 20px",
+                borderRadius: "999px",
+                background: "#F97316",
+                color: "#000000",
+                textDecoration: "none",
+                fontWeight: 600,
+                width: "fit-content",
+                transition: "opacity 0.15s",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+            >
+              Call Now →
+            </a>
+          </div>
         </div>
       </div>
     </section>

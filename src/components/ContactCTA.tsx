@@ -70,7 +70,7 @@ export default function ContactCTA() {
             </h2>
             <p
               className="font-body text-base leading-relaxed mb-10"
-              style={{ color: "#64748B", maxWidth: "400px" }}
+              style={{ color: "#94A3B8", maxWidth: "400px" }}
             >
               Call or send a message and Mike will get back to you fast. For emergencies, call
               directly — we pick up.
@@ -96,7 +96,7 @@ export default function ContactCTA() {
                     height="16"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#64748B"
+                    stroke="#94A3B8"
                     strokeWidth="1.8"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -107,7 +107,7 @@ export default function ContactCTA() {
                 <div>
                   <div
                     className="font-mono uppercase mb-0.5"
-                    style={{ fontSize: "10px", letterSpacing: "0.15em", color: "#64748B" }}
+                    style={{ fontSize: "10px", letterSpacing: "0.15em", color: "#94A3B8" }}
                   >
                     Phone
                   </div>
@@ -135,7 +135,7 @@ export default function ContactCTA() {
                     height="16"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#64748B"
+                    stroke="#94A3B8"
                     strokeWidth="1.8"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -147,7 +147,7 @@ export default function ContactCTA() {
                 <div>
                   <div
                     className="font-mono uppercase mb-0.5"
-                    style={{ fontSize: "10px", letterSpacing: "0.15em", color: "#64748B" }}
+                    style={{ fontSize: "10px", letterSpacing: "0.15em", color: "#94A3B8" }}
                   >
                     Email
                   </div>
@@ -170,7 +170,7 @@ export default function ContactCTA() {
                     height="16"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#64748B"
+                    stroke="#94A3B8"
                     strokeWidth="1.8"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -182,7 +182,7 @@ export default function ContactCTA() {
                 <div>
                   <div
                     className="font-mono uppercase mb-0.5"
-                    style={{ fontSize: "10px", letterSpacing: "0.15em", color: "#64748B" }}
+                    style={{ fontSize: "10px", letterSpacing: "0.15em", color: "#94A3B8" }}
                   >
                     Service Area
                   </div>
@@ -199,23 +199,39 @@ export default function ContactCTA() {
             className="p-8"
             style={{
               background: "#0f0f0f",
-              border: "1px solid rgba(255,255,255,0.08)",
+              border: "1px solid rgba(249,115,22,0.2)",
               borderRadius: "1rem",
+              boxShadow: "0 0 0 1px rgba(249,115,22,0.06), 0 24px 64px rgba(0,0,0,0.4)",
             }}
           >
-            <h3
-              className="font-serif text-2xl mb-6"
-              style={{ color: "#FFFFFF", fontStyle: "italic", letterSpacing: "-0.01em" }}
-            >
-              Request Service
-            </h3>
+            {/* Form header with orange accent bar */}
+            <div style={{ borderLeft: "3px solid #F97316", paddingLeft: "1rem", marginBottom: "1.75rem" }}>
+              <p
+                className="font-mono uppercase"
+                style={{ fontSize: "10px", letterSpacing: "0.18em", color: "#F97316", marginBottom: "0.4rem" }}
+              >
+                Free Estimate · Fast Response
+              </p>
+              <h3
+                className="font-serif"
+                style={{
+                  fontSize: "clamp(1.5rem, 3vw, 2rem)",
+                  color: "#FFFFFF",
+                  fontStyle: "italic",
+                  letterSpacing: "-0.01em",
+                  lineHeight: 1.05,
+                }}
+              >
+                Request Service Today
+              </h3>
+            </div>
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 {["First Name", "Last Name"].map((label) => (
                   <div key={label}>
                     <label
                       className="font-mono uppercase mb-2 block"
-                      style={{ fontSize: "10px", letterSpacing: "0.1em", color: "#64748B" }}
+                      style={{ fontSize: "10px", letterSpacing: "0.1em", color: "#94A3B8" }}
                     >
                       {label}
                     </label>
@@ -234,7 +250,7 @@ export default function ContactCTA() {
               <div>
                 <label
                   className="font-mono uppercase mb-2 block"
-                  style={{ fontSize: "10px", letterSpacing: "0.1em", color: "#64748B" }}
+                  style={{ fontSize: "10px", letterSpacing: "0.1em", color: "#94A3B8" }}
                 >
                   Phone Number
                 </label>
@@ -251,7 +267,7 @@ export default function ContactCTA() {
               <div>
                 <label
                   className="font-mono uppercase mb-2 block"
-                  style={{ fontSize: "10px", letterSpacing: "0.1em", color: "#64748B" }}
+                  style={{ fontSize: "10px", letterSpacing: "0.1em", color: "#94A3B8" }}
                 >
                   Service Needed
                 </label>
@@ -277,7 +293,7 @@ export default function ContactCTA() {
               <div>
                 <label
                   className="font-mono uppercase mb-2 block"
-                  style={{ fontSize: "10px", letterSpacing: "0.1em", color: "#64748B" }}
+                  style={{ fontSize: "10px", letterSpacing: "0.1em", color: "#94A3B8" }}
                 >
                   Tell Us More
                 </label>
@@ -294,20 +310,27 @@ export default function ContactCTA() {
                 type="submit"
                 className="w-full font-mono uppercase font-semibold"
                 style={{
-                  fontSize: "12px",
-                  letterSpacing: "0.1em",
-                  padding: "16px",
+                  fontSize: "13px",
+                  letterSpacing: "0.12em",
+                  padding: "18px",
                   background: "#F97316",
                   color: "#000000",
                   border: "none",
                   cursor: "pointer",
                   transition: "opacity 0.15s",
+                  borderRadius: "2px",
                 }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.opacity = "0.85")}
                 onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.opacity = "1")}
               >
-                Send Request →
+                Get My Free Estimate →
               </button>
+              <p
+                className="font-mono text-center"
+                style={{ fontSize: "10px", letterSpacing: "0.1em", color: "rgba(255,255,255,0.25)", marginTop: "0.75rem" }}
+              >
+                Mike responds fast — often same day
+              </p>
             </form>
           </div>
         </div>

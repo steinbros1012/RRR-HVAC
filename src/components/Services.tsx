@@ -153,7 +153,7 @@ export default function Services() {
               className="font-body"
               style={{
                 fontSize: "0.9375rem",
-                color: "#64748B",
+                color: "#94A3B8",
                 lineHeight: 1.7,
                 maxWidth: "340px",
                 marginBottom: "2.5rem",
@@ -239,7 +239,7 @@ export default function Services() {
                       className="font-body"
                       style={{
                         fontSize: "0.875rem",
-                        color: "#64748B",
+                        color: "#94A3B8",
                         lineHeight: 1.7,
                         maxWidth: "420px",
                       }}

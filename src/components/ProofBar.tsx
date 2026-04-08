@@ -32,7 +32,7 @@ export default function ProofBar() {
               </div>
               <div
                 className="font-body text-[11px] tracking-wide"
-                style={{ color: "#64748B" }}
+                style={{ color: "#94A3B8" }}
               >
                 {s.label}
               </div>

@@ -66,30 +66,31 @@ function ReviewCard({ review }: { review: (typeof reviews)[0] }) {
     <div
       className="flex-shrink-0 w-80 p-6 mx-3 flex flex-col gap-4"
       style={{
-        background: "#111111",
-        border: "1px solid rgba(255,255,255,0.08)",
-        borderRadius: "2px",
+        background: "#FFFFFF",
+        border: "1px solid rgba(0,0,0,0.1)",
+        borderRadius: "4px",
+        boxShadow: "0 2px 12px rgba(0,0,0,0.18)",
       }}
     >
       <StarRating count={review.rating} />
-      <p className="font-body text-sm leading-relaxed flex-1" style={{ color: "#64748B" }}>
+      <p className="font-body text-sm leading-relaxed flex-1" style={{ color: "#374151" }}>
         &ldquo;{review.text}&rdquo;
       </p>
       <div
         className="flex items-center gap-3 pt-2"
-        style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+        style={{ borderTop: "1px solid rgba(0,0,0,0.08)" }}
       >
         <div
           className="w-7 h-7 rounded-full flex items-center justify-center font-mono font-bold text-xs"
-          style={{ background: "#1a1a1a", color: "#F97316", border: "1px solid rgba(255,255,255,0.1)" }}
+          style={{ background: "#FFF7ED", color: "#F97316", border: "1px solid rgba(249,115,22,0.25)" }}
         >
           {review.name[0]}
         </div>
         <div>
-          <div className="font-body text-xs font-medium" style={{ color: "#FFFFFF" }}>
+          <div className="font-body text-xs font-medium" style={{ color: "#111827" }}>
             {review.name}
           </div>
-          <div className="font-mono" style={{ fontSize: "10px", letterSpacing: "0.08em", color: "#64748B" }}>
+          <div className="font-mono" style={{ fontSize: "10px", letterSpacing: "0.08em", color: "#6B7280" }}>
             {review.location}
           </div>
         </div>

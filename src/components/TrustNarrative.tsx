@@ -37,25 +37,27 @@ export default function TrustNarrative() {
                 marginBottom: "1.75rem",
               }}
             >
-              A Firefighter&apos;s
+              Family-Owned.
               <br />
-              Standard.
+              Built on Trust.
             </h2>
 
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "2rem" }}>
-              <p className="font-body" style={{ fontSize: "1rem", color: "#64748B", lineHeight: 1.7 }}>
-                The owner of RRR HVAC is a full-time firefighter and paramedic. That background
-                shapes everything about how this business operates — showing up when called, doing
-                the job right under pressure, and never cutting corners when someone is depending
-                on you.
+              <p className="font-body" style={{ fontSize: "1rem", color: "#94A3B8", lineHeight: 1.7 }}>
+                Mike is a full-time firefighter and paramedic — and the owner of RRR HVAC. His
+                background in emergency response shapes everything about how this business runs:
+                show up when called, do the job right under pressure, and never cut corners
+                when someone is depending on you.
               </p>
-              <p className="font-body" style={{ fontSize: "1rem", color: "#64748B", lineHeight: 1.7 }}>
+              <p className="font-body" style={{ fontSize: "1rem", color: "#94A3B8", lineHeight: 1.7 }}>
+                This is a family business in every sense. Mike and his wife are raising their three
+                kids in Watertown — which means the community he serves is the same one he lives in.
+                That accountability matters, and it shows in every job.
+              </p>
+              <p className="font-body" style={{ fontSize: "1rem", color: "#94A3B8", lineHeight: 1.7 }}>
                 RRR HVAC installs and services Trane equipment — one of the most trusted names in
-                HVAC — and brings the same standard of care to every job, whether it&apos;s a
-                routine tune-up or a furnace failure at midnight in February.
-              </p>
-              <p className="font-body" style={{ fontSize: "1rem", color: "#64748B", lineHeight: 1.7 }}>
-                Serving Watertown and surrounding South Dakota since day one.
+                the industry — and brings that same standard of care to every job, from routine
+                tune-ups to furnace failures at midnight in February.
               </p>
             </div>
 
@@ -80,63 +82,100 @@ export default function TrustNarrative() {
             </div>
           </div>
 
-          {/* Right: image + quote overlay */}
-          <div style={{ position: "relative" }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/furnace-install-finished.png"
-              alt="RRR HVAC field work"
-              style={{
-                width: "100%",
-                height: "480px",
-                objectFit: "cover",
-                display: "block",
-                borderRadius: "1rem",
-              }}
-            />
-            {/* Dark overlay on image */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                background: "rgba(8,8,8,0.45)",
-                borderRadius: "1rem",
-              }}
-            />
-
-            {/* Glass quote card */}
-            <div
-              style={{
-                position: "absolute",
-                bottom: "1.5rem",
-                left: "1.5rem",
-                right: "1.5rem",
-                background: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(255,255,255,0.1)",
-                borderRadius: "0.75rem",
-                backdropFilter: "blur(12px)",
-                padding: "1.25rem 1.5rem",
-              }}
-            >
-              <p
-                className="font-serif"
+          {/* Right: family photos stacked */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            {/* Primary — family photo */}
+            <div style={{ position: "relative", borderRadius: "1rem", overflow: "hidden" }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/family-photo.png"
+                alt="Mike and his family"
                 style={{
-                  fontSize: "1.05rem",
-                  color: "#E2E8F0",
-                  fontStyle: "italic",
-                  lineHeight: 1.5,
-                  letterSpacing: "-0.01em",
+                  width: "100%",
+                  height: "340px",
+                  objectFit: "cover",
+                  objectPosition: "center 30%",
+                  display: "block",
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: "linear-gradient(to top, rgba(8,8,8,0.55) 0%, transparent 50%)",
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "1rem",
+                  left: "1.25rem",
                 }}
               >
-                &ldquo;We show up when we say we will, fix it right, and leave your home better
-                than we found it.&rdquo;
-              </p>
-              <div style={{ marginTop: "0.75rem" }}>
                 <span
                   className="font-mono uppercase"
-                  style={{ fontSize: "10px", letterSpacing: "0.1em", color: "#F97316" }}
+                  style={{ fontSize: "9px", letterSpacing: "0.14em", color: "rgba(255,255,255,0.7)" }}
                 >
-                  Mike — Owner, RRR HVAC Rescue LLC
+                  Mike &amp; Family · Watertown, SD
+                </span>
+              </div>
+            </div>
+
+            {/* Secondary — Mike + wife + quote */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1.2fr",
+                gap: "1rem",
+                alignItems: "stretch",
+              }}
+            >
+              <div style={{ position: "relative", borderRadius: "0.75rem", overflow: "hidden" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/mike-and-wife.png"
+                  alt="Mike with his wife"
+                  style={{
+                    width: "100%",
+                    height: "180px",
+                    objectFit: "cover",
+                    objectPosition: "center top",
+                    display: "block",
+                  }}
+                />
+              </div>
+
+              {/* Quote panel */}
+              <div
+                style={{
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.09)",
+                  borderRadius: "0.75rem",
+                  padding: "1.25rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  gap: "0.75rem",
+                }}
+              >
+                <p
+                  className="font-serif"
+                  style={{
+                    fontSize: "0.975rem",
+                    color: "#E2E8F0",
+                    fontStyle: "italic",
+                    lineHeight: 1.5,
+                    letterSpacing: "-0.01em",
+                  }}
+                >
+                  &ldquo;We show up when we say we will, fix it right, and leave your home better
+                  than we found it.&rdquo;
+                </p>
+                <span
+                  className="font-mono uppercase"
+                  style={{ fontSize: "9px", letterSpacing: "0.1em", color: "#F97316" }}
+                >
+                  Mike — Owner
                 </span>
               </div>
             </div>
