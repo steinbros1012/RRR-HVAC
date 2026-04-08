@@ -5,25 +5,21 @@ const photos = [
     src: "/basement-install-photo.png",
     alt: "Basement HVAC installation in Watertown, SD",
     caption: "Basement Install",
-    objectPosition: "center center",
   },
   {
     src: "/furnace-install-finished.png",
     alt: "Completed furnace installation",
     caption: "Furnace Install",
-    objectPosition: "center top",
   },
   {
     src: "/gas-meter-and-venting.png",
     alt: "Gas meter and venting setup",
     caption: "Gas & Venting",
-    objectPosition: "center center",
   },
   {
     src: "/exterior-vent-pipes.png",
     alt: "Exterior vent pipe installation",
     caption: "Exterior Venting",
-    objectPosition: "center center",
   },
 ];
 
@@ -32,14 +28,7 @@ export default function WorkShowcase() {
     <section style={{ background: "#080808", padding: "5rem 0" }}>
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Header */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "0",
-            marginBottom: "2.5rem",
-          }}
-        >
+        <div style={{ marginBottom: "2.5rem" }}>
           <div
             style={{
               display: "flex",
@@ -85,7 +74,7 @@ export default function WorkShowcase() {
               className="font-body"
               style={{
                 fontSize: "1rem",
-                color: "#64748B",
+                color: "#94A3B8",
                 maxWidth: "360px",
                 lineHeight: 1.65,
               }}
@@ -99,54 +88,56 @@ export default function WorkShowcase() {
           />
         </div>
 
-        {/* Desktop: 2×2 grid — large readable cards */}
+        {/* 2×2 grid — contain so every photo is fully visible */}
         <div
-          className="hidden md:grid"
-          style={{
-            gridTemplateColumns: "1fr 1fr",
-            gridTemplateRows: "420px 420px",
-            gap: "3px",
-          }}
+          className="grid grid-cols-1 sm:grid-cols-2"
+          style={{ gap: "3px" }}
         >
           {photos.map((photo, i) => (
             <div
               key={photo.src}
-              style={{ position: "relative", overflow: "hidden" }}
+              style={{
+                background: "#0d0d0d",
+                border: "1px solid rgba(255,255,255,0.06)",
+                position: "relative",
+                display: "flex",
+                flexDirection: "column",
+              }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={photo.src}
-                alt={photo.alt}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  objectPosition: photo.objectPosition,
-                  display: "block",
-                }}
-              />
-              {/* Subtle bottom gradient for caption legibility */}
+              {/* Photo — contain, full image always visible */}
               <div
                 style={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: "100px",
-                  background:
-                    "linear-gradient(to top, rgba(8,8,8,0.75) 0%, transparent 100%)",
-                  pointerEvents: "none",
+                  background: "#111111",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "1.75rem",
+                  minHeight: "320px",
                 }}
-              />
-              {/* Always-visible caption */}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  style={{
+                    maxWidth: "100%",
+                    maxHeight: "340px",
+                    width: "auto",
+                    height: "auto",
+                    objectFit: "contain",
+                    display: "block",
+                  }}
+                />
+              </div>
+
+              {/* Caption strip */}
               <div
                 style={{
-                  position: "absolute",
-                  bottom: "1.25rem",
-                  left: "1.25rem",
+                  padding: "0.875rem 1.25rem",
                   display: "flex",
                   alignItems: "center",
                   gap: "0.75rem",
+                  borderTop: "1px solid rgba(255,255,255,0.06)",
                 }}
               >
                 <span
@@ -154,85 +145,23 @@ export default function WorkShowcase() {
                   style={{
                     fontSize: "9px",
                     letterSpacing: "0.18em",
-                    color: "rgba(255,255,255,0.5)",
+                    color: "#F97316",
                     textTransform: "uppercase",
                   }}
                 >
                   0{i + 1}
                 </span>
-                <div
-                  style={{
-                    width: "24px",
-                    height: "1px",
-                    background: "rgba(255,255,255,0.25)",
-                  }}
-                />
+                <div style={{ width: "20px", height: "1px", background: "rgba(255,255,255,0.15)" }} />
                 <span
                   className="font-mono"
                   style={{
-                    fontSize: "9px",
-                    letterSpacing: "0.15em",
-                    color: "rgba(255,255,255,0.7)",
+                    fontSize: "10px",
+                    letterSpacing: "0.14em",
+                    color: "#94A3B8",
                     textTransform: "uppercase",
                   }}
                 >
                   {photo.caption} — Watertown, SD
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Mobile: stacked — generous height so subject is clear */}
-        <div
-          className="md:hidden"
-          style={{ display: "flex", flexDirection: "column", gap: "3px" }}
-        >
-          {photos.map((photo, i) => (
-            <div key={photo.src} style={{ position: "relative", overflow: "hidden" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={photo.src}
-                alt={photo.alt}
-                style={{
-                  width: "100%",
-                  height: "300px",
-                  objectFit: "cover",
-                  objectPosition: photo.objectPosition,
-                  display: "block",
-                }}
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: "80px",
-                  background: "linear-gradient(to top, rgba(8,8,8,0.75) 0%, transparent 100%)",
-                  pointerEvents: "none",
-                }}
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "1rem",
-                  left: "1rem",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                }}
-              >
-                <span
-                  className="font-mono"
-                  style={{
-                    fontSize: "9px",
-                    letterSpacing: "0.15em",
-                    color: "rgba(255,255,255,0.65)",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  0{i + 1} — {photo.caption}
                 </span>
               </div>
             </div>
