@@ -139,7 +139,7 @@ export default function TrustNarrative() {
                     width: "100%",
                     height: "180px",
                     objectFit: "cover",
-                    objectPosition: "center top",
+                    objectPosition: "center 35%",
                     display: "block",
                   }}
                 />

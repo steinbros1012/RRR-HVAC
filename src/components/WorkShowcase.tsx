@@ -104,15 +104,12 @@ export default function WorkShowcase() {
                 flexDirection: "column",
               }}
             >
-              {/* Photo — contain, full image always visible */}
+              {/* Photo — contain at fixed height, no padding, no whitespace */}
               <div
                 style={{
                   background: "#111111",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  padding: "1.75rem",
-                  minHeight: "320px",
+                  height: "400px",
+                  overflow: "hidden",
                 }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -120,10 +117,8 @@ export default function WorkShowcase() {
                   src={photo.src}
                   alt={photo.alt}
                   style={{
-                    maxWidth: "100%",
-                    maxHeight: "340px",
-                    width: "auto",
-                    height: "auto",
+                    width: "100%",
+                    height: "100%",
                     objectFit: "contain",
                     display: "block",
                   }}
