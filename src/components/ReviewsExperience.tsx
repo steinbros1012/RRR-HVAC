@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 type Review = {
   name: string;
@@ -32,6 +32,7 @@ export default function ReviewsExperience({ reviews }: { reviews: Review[] }) {
   );
   const [activeFilter, setActiveFilter] = useState("All");
   const [activeReviewName, setActiveReviewName] = useState(reviews[0]?.name ?? "");
+  const featuredReviewRef = useRef<HTMLElement | null>(null);
 
   const filteredReviews = useMemo(() => {
     if (activeFilter === "All") {
@@ -43,6 +44,23 @@ export default function ReviewsExperience({ reviews }: { reviews: Review[] }) {
 
   const activeReview =
     filteredReviews.find((review) => review.name === activeReviewName) ?? filteredReviews[0] ?? reviews[0];
+
+  const scrollToFeaturedReview = () => {
+    if (!featuredReviewRef.current) {
+      return;
+    }
+
+    const top = featuredReviewRef.current.getBoundingClientRect().top + window.scrollY - 120;
+    window.scrollTo({
+      top,
+      behavior: "smooth",
+    });
+  };
+
+  const handleReviewSelect = (reviewName: string) => {
+    setActiveReviewName(reviewName);
+    scrollToFeaturedReview();
+  };
 
   return (
     <section
@@ -93,6 +111,7 @@ export default function ReviewsExperience({ reviews }: { reviews: Review[] }) {
 
         <div className="grid xl:grid-cols-[1.05fr_0.95fr]" style={{ gap: "2px", background: "rgba(255,255,255,0.05)" }}>
           <article
+            ref={featuredReviewRef}
             style={{
               background:
                 "linear-gradient(180deg, rgba(20,20,20,1) 0%, rgba(13,13,13,1) 100%)",
@@ -200,7 +219,7 @@ export default function ReviewsExperience({ reviews }: { reviews: Review[] }) {
                   <button
                     key={review.name}
                     type="button"
-                    onClick={() => setActiveReviewName(review.name)}
+                    onClick={() => handleReviewSelect(review.name)}
                     style={{
                       textAlign: "left",
                       background: isActive ? "rgba(249,115,22,0.12)" : "#141414",
@@ -282,7 +301,7 @@ export default function ReviewsExperience({ reviews }: { reviews: Review[] }) {
               <button
                 key={review.name}
                 type="button"
-                onClick={() => setActiveReviewName(review.name)}
+                onClick={() => handleReviewSelect(review.name)}
                 style={{
                   background: review.name === activeReview.name ? "rgba(255,255,255,0.08)" : "#141414",
                   padding: "1.5rem",
