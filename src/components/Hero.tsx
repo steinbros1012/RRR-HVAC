@@ -1,23 +1,97 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 const PHONE = "(605) 881-5622";
 
+const HERO_IMAGES = [
+  {
+    src: "/hero-background-tools.png",
+    objectPosition: "center",
+  },
+  {
+    src: "/furnace-install-finished.png",
+    objectPosition: "center center",
+  },
+  {
+    src: "/basement-install-photo.png",
+    objectPosition: "center center",
+  },
+  {
+    src: "/gas-meter-and-venting.png",
+    objectPosition: "center center",
+  },
+];
+
 export default function Hero() {
+  const [activeImage, setActiveImage] = useState(0);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePreference = () => setPrefersReducedMotion(mediaQuery.matches);
+
+    updatePreference();
+    mediaQuery.addEventListener("change", updatePreference);
+
+    return () => mediaQuery.removeEventListener("change", updatePreference);
+  }, []);
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      return;
+    }
+
+    const interval = window.setInterval(() => {
+      setActiveImage((current) => (current + 1) % HERO_IMAGES.length);
+    }, 5200);
+
+    return () => window.clearInterval(interval);
+  }, [prefersReducedMotion]);
+
   return (
     <section style={{ position: "relative", minHeight: "100vh", overflow: "hidden" }}>
       {/* Background */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/hero-background-tools.png"
-        alt=""
-        aria-hidden="true"
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
-      />
+      <div aria-hidden="true" style={{ position: "absolute", inset: 0 }}>
+        {HERO_IMAGES.map((image, index) => {
+          const isActive = index === activeImage;
+
+          return (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              key={image.src}
+              src={image.src}
+              alt=""
+              style={{
+                position: "absolute",
+                inset: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: image.objectPosition,
+                opacity: isActive ? 1 : 0,
+                transform: isActive ? "scale(1.035)" : "scale(1)",
+                transition: prefersReducedMotion
+                  ? "opacity 0.2s ease"
+                  : "opacity 1.6s ease, transform 6.8s ease",
+                willChange: "opacity, transform",
+              }}
+            />
+          );
+        })}
+      </div>
       {/* Overlay — heavy at top (behind nav), lighter in middle, heaviest at bottom */}
       <div style={{
         position: "absolute",
         inset: 0,
-        background: "linear-gradient(to bottom, rgba(8,8,8,0.85) 0%, rgba(8,8,8,0.5) 45%, rgba(8,8,8,0.88) 100%)",
+        background: "linear-gradient(to bottom, rgba(8,8,8,0.85) 0%, rgba(8,8,8,0.52) 45%, rgba(8,8,8,0.88) 100%)",
+      }} />
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "radial-gradient(circle at 20% 35%, rgba(249,115,22,0.16), transparent 32%), radial-gradient(circle at 78% 22%, rgba(255,255,255,0.08), transparent 24%)",
       }} />
 
       {/* Content */}
