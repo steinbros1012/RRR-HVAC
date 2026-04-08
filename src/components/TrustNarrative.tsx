@@ -44,20 +44,19 @@ export default function TrustNarrative() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "2rem" }}>
               <p className="font-body" style={{ fontSize: "1rem", color: "#94A3B8", lineHeight: 1.7 }}>
-                Mike is a full-time firefighter and paramedic — and the owner of RRR HVAC. His
-                background in emergency response shapes everything about how this business runs:
-                show up when called, do the job right under pressure, and never cut corners
-                when someone is depending on you.
+                Mike is a full-time firefighter and paramedic, and he owns RRR HVAC. That
+                background shows up in how he runs the business. When somebody calls, he shows
+                up, stays calm, and gets the job done right.
               </p>
               <p className="font-body" style={{ fontSize: "1rem", color: "#94A3B8", lineHeight: 1.7 }}>
-                This is a family business in every sense. Mike and his wife are raising their three
-                kids in Watertown — which means the community he serves is the same one he lives in.
-                That accountability matters, and it shows in every job.
+                Mike and his wife are raising their three kids in Watertown, so this is personal.
+                He works in the same community he lives in, and people know his name. That matters
+                when you are trusting someone to come into your home and fix your system.
               </p>
               <p className="font-body" style={{ fontSize: "1rem", color: "#94A3B8", lineHeight: 1.7 }}>
-                RRR HVAC installs and services Trane equipment — one of the most trusted names in
-                the industry — and brings that same standard of care to every job, from routine
-                tune-ups to furnace failures at midnight in February.
+                RRR HVAC installs and services Trane equipment, and Mike brings that same level of
+                care to every job, whether it is a tune-up, a new install, or a furnace that quits
+                in the middle of winter.
               </p>
             </div>
 
