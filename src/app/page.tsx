@@ -1,38 +1,28 @@
 "use client";
 
-import IntroAnimation from "@/components/IntroAnimation";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ProofBar from "@/components/ProofBar";
-import Services from "@/components/Services";
-import CardSwapSection from "@/components/CardSwapSection";
-import WorkShowcase from "@/components/WorkShowcase";
+import ServicesPreview from "@/components/ServicesPreview";
+import WorkGrid from "@/components/WorkGrid";
 import TrustNarrative from "@/components/TrustNarrative";
-import HorizontalGallery from "@/components/HorizontalGallery";
-import ReviewMarquee from "@/components/ReviewMarquee";
-import ServiceArea from "@/components/ServiceArea";
-import Promotions from "@/components/Promotions";
-import ContactCTA from "@/components/ContactCTA";
+import ReviewsTeaser from "@/components/ReviewsTeaser";
+import CTABanner from "@/components/CTABanner";
 import Footer from "@/components/Footer";
 import StickyEstimateCTA from "@/components/StickyEstimateCTA";
 
 export default function Home() {
   return (
     <>
-      <IntroAnimation />
       <Navbar />
       <main>
         <Hero />
         <ProofBar />
-        <Services />
-        <CardSwapSection />
-        <WorkShowcase />
+        <ServicesPreview />
+        <WorkGrid />
         <TrustNarrative />
-        <HorizontalGallery />
-        <ReviewMarquee />
-        <ServiceArea />
-        <Promotions />
-        <ContactCTA />
+        <ReviewsTeaser />
+        <CTABanner />
       </main>
       <Footer />
       <StickyEstimateCTA />

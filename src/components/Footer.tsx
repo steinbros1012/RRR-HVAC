@@ -4,10 +4,10 @@ const PHONE = "(605) 881-5622";
 
 export default function Footer() {
   const links = [
-    { label: "Services", href: "#services" },
-    { label: "Why RRR", href: "#why" },
-    { label: "Reviews", href: "#reviews" },
-    { label: "Contact", href: "#contact" },
+    { label: "Services", href: "/services" },
+    { label: "About", href: "/about" },
+    { label: "Reviews", href: "/reviews" },
+    { label: "Contact", href: "/contact" },
   ];
 
   const services = [
@@ -122,7 +122,7 @@ export default function Footer() {
               {services.map((s) => (
                 <li key={s}>
                   <a
-                    href="#services"
+                    href="/services"
                     className="font-body text-sm transition-colors duration-150"
                     style={{ color: "#94A3B8", textDecoration: "none" }}
                     onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#FFFFFF")}

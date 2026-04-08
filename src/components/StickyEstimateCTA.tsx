@@ -14,7 +14,7 @@ export default function StickyEstimateCTA() {
 
   return (
     <a
-      href="#contact"
+      href="/contact"
       aria-label="Request a free estimate"
       className="fixed z-40"
       onMouseEnter={(e) => {
