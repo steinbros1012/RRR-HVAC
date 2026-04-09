@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyEstimateCTA from "@/components/StickyEstimateCTA";
 import CTABanner from "@/components/CTABanner";
+import ServicesGrid from "@/components/ServicesGrid";
 
 export const metadata: Metadata = {
   title: "Services | RRR HVAC Rescue LLC",
@@ -128,68 +129,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Services Grid */}
-        <section
-          style={{
-            background: "#080808",
-            paddingTop: "0",
-            paddingBottom: "0",
-            borderBottom: "1px solid rgba(255,255,255,0.07)",
-          }}
-        >
-          <div
-            className="grid md:grid-cols-2"
-            style={{ gap: "2px", background: "rgba(255,255,255,0.05)" }}
-          >
-            {services.map((s) => (
-              <div
-                key={s.num}
-                style={{
-                  background: "#0d0d0d",
-                  border: "1px solid rgba(255,255,255,0.07)",
-                  padding: "2rem",
-                }}
-              >
-                <div
-                  className="font-mono"
-                  style={{
-                    fontSize: "10px",
-                    letterSpacing: "0.18em",
-                    color: "#F97316",
-                    marginBottom: "1rem",
-                  }}
-                >
-                  {s.num}
-                </div>
-                <h3
-                  className="font-serif"
-                  style={{
-                    fontSize: "1.4rem",
-                    color: "#FFFFFF",
-                    fontStyle: "italic",
-                    marginBottom: "0.75rem",
-                    lineHeight: 1.2,
-                  }}
-                >
-                  {s.title}
-                </h3>
-                <div
-                  style={{
-                    height: "1px",
-                    background: "rgba(255,255,255,0.06)",
-                    marginBottom: "0.875rem",
-                  }}
-                />
-                <p
-                  className="font-body"
-                  style={{ color: "#94A3B8", fontSize: "0.9375rem", lineHeight: 1.65 }}
-                >
-                  {s.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <ServicesGrid />
 
         {/* Trane Trust Section */}
         <section

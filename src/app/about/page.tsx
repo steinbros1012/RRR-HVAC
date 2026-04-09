@@ -3,6 +3,7 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyEstimateCTA from "@/components/StickyEstimateCTA";
+import AboutValues from "@/components/AboutValues";
 
 export const metadata: Metadata = {
   title: "About RRR HVAC Rescue LLC | Watertown, SD",
@@ -219,32 +220,7 @@ export default function AboutPage() {
               How We Work
             </h2>
 
-            <div className="grid sm:grid-cols-2 gap-px" style={{ background: "rgba(255,255,255,0.06)" }}>
-              {values.map((v, i) => (
-                <div
-                  key={v.title}
-                  className="p-8"
-                  style={{ background: i % 2 === 0 ? "#141414" : "#0f0f0f" }}
-                >
-                  <div
-                    className="font-serif text-4xl leading-none mb-4 select-none"
-                    style={{ color: "rgba(255,255,255,0.06)", letterSpacing: "-0.04em", fontStyle: "italic" }}
-                    aria-hidden="true"
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
-                  <h3
-                    className="font-serif text-xl leading-tight mb-3"
-                    style={{ color: "#FFFFFF", fontStyle: "italic" }}
-                  >
-                    {v.title}
-                  </h3>
-                  <p className="font-body text-sm leading-relaxed" style={{ color: "#64748B" }}>
-                    {v.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <AboutValues />
           </div>
         </section>
 

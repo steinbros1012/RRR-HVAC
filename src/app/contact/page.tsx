@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyEstimateCTA from "@/components/StickyEstimateCTA";
@@ -89,6 +89,25 @@ export default function ContactPage() {
 
   const [selectFocused, setSelectFocused] = useState(false);
   const [textareaFocused, setTextareaFocused] = useState(false);
+  const [formIn, setFormIn] = useState(false);
+  const [infoIn, setInfoIn] = useState(false);
+  const formRef = useRef<HTMLDivElement | null>(null);
+  const infoRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const observe = (el: HTMLElement | null, set: (v: boolean) => void) => {
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([e]) => { if (e.isIntersecting) { set(true); obs.unobserve(el); } },
+        { threshold: 0.08 }
+      );
+      obs.observe(el);
+      return () => obs.disconnect();
+    };
+    const c1 = observe(formRef.current, setFormIn);
+    const c2 = observe(infoRef.current, setInfoIn);
+    return () => { c1?.(); c2?.(); };
+  }, []);
 
   const set = (field: keyof typeof form) => (val: string) =>
     setForm((prev) => ({ ...prev, [field]: val }));
@@ -171,7 +190,14 @@ export default function ContactPage() {
               <div className="grid md:grid-cols-[1fr_1.4fr]" style={{ gap: "48px", alignItems: "start" }}>
 
                 {/* LEFT COLUMN — Contact Info */}
-                <div>
+                <div
+                  ref={infoRef}
+                  style={{
+                    opacity: infoIn ? 1 : 0,
+                    transform: infoIn ? "none" : "translateX(-20px)",
+                    transition: "opacity 0.65s ease, transform 0.65s ease",
+                  }}
+                >
                   <h2
                     className="font-serif"
                     style={{
@@ -360,11 +386,15 @@ export default function ContactPage() {
 
                 {/* RIGHT COLUMN — Form */}
                 <div
+                  ref={formRef}
                   style={{
                     background: "#0f0f0f",
                     border: "1px solid rgba(249,115,22,0.18)",
                     borderRadius: "4px",
                     padding: "2.5rem",
+                    opacity: formIn ? 1 : 0,
+                    transform: formIn ? "none" : "translateX(20px)",
+                    transition: "opacity 0.65s ease 0.15s, transform 0.65s ease 0.15s",
                   }}
                 >
                   <div
