@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 const PHONE = "(605) 881-5622";
-const HERO_ROTATION_SECONDS = 18;
+const HERO_ROTATION_MS = 4200;
 
 const HERO_IMAGES = [
   {
@@ -27,25 +27,23 @@ const HERO_IMAGES = [
 const TRUST_ITEMS = [
   "Licensed & Insured",
   "All Makes & Models",
-  "Trane Equipment Available",
+  "Trane Service & Installation",
   "Emergency Response",
 ];
 
 export default function Hero() {
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [activeImage, setActiveImage] = useState(0);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const updatePreference = () => setPrefersReducedMotion(mediaQuery.matches);
+    const interval = window.setInterval(() => {
+      setActiveImage((current) => (current + 1) % HERO_IMAGES.length);
+    }, HERO_ROTATION_MS);
 
-    updatePreference();
-    mediaQuery.addEventListener("change", updatePreference);
-
-    return () => mediaQuery.removeEventListener("change", updatePreference);
+    return () => window.clearInterval(interval);
   }, []);
 
   return (
-    <section style={{ position: "relative", minHeight: "100svh", overflow: "hidden" }}>
+    <section style={{ position: "relative", minHeight: "100dvh", overflow: "hidden" }}>
       {/* Background */}
       <div aria-hidden="true" style={{ position: "absolute", inset: 0 }}>
         {HERO_IMAGES.map((image, index) => {
@@ -64,15 +62,10 @@ export default function Hero() {
                 height: "100%",
                 objectFit: "cover",
                 objectPosition: image.objectPosition,
-                opacity: index === 0 ? 1 : 0,
-                transform: "scale(1.035)",
-                animation: prefersReducedMotion
-                  ? "none"
-                  : `heroFade ${HERO_ROTATION_SECONDS}s linear infinite`,
-                animationDelay: prefersReducedMotion
-                  ? "0s"
-                  : `${(index * HERO_ROTATION_SECONDS) / HERO_IMAGES.length * -1}s`,
-                willChange: prefersReducedMotion ? "auto" : "opacity, transform",
+                opacity: index === activeImage ? 1 : 0,
+                transform: index === activeImage ? "scale(1.04)" : "scale(1.01)",
+                transition: "opacity 1.2s ease, transform 4.2s ease",
+                willChange: "opacity, transform",
               }}
             />
           );
@@ -104,9 +97,9 @@ export default function Hero() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-end",
-          minHeight: "100svh",
+          minHeight: "100dvh",
           paddingTop: "8rem",
-          paddingBottom: "4.5rem",
+          paddingBottom: "max(4.5rem, calc(env(safe-area-inset-bottom) + 2rem))",
         }}
       >
         {/* Location eyebrow */}

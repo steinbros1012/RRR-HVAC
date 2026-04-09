@@ -4,6 +4,8 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -12,6 +14,7 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  overscroll-behavior-x: none;
 }
 
 /* ─── Custom font utilities ─────────────────────────────────────────────── */
@@ -115,37 +118,12 @@ body {
   animation-play-state: paused;
 }
 
-/* ─── Hero mobile behavior ─────────────────────────────────────────────── */
-
-@keyframes heroFade {
-  0% {
-    opacity: 0;
-    transform: scale(1);
-  }
-  6% {
-    opacity: 1;
-    transform: scale(1.02);
-  }
-  24% {
-    opacity: 1;
-    transform: scale(1.06);
-  }
-  31% {
-    opacity: 0;
-    transform: scale(1.08);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.08);
-  }
-}
-
 .hero-slide {
   backface-visibility: hidden;
   transform: translateZ(0);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 767px) {
   .hero-cta-group {
     width: 100%;
     flex-direction: column;

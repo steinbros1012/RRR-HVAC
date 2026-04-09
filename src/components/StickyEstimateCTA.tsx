@@ -26,12 +26,12 @@ export default function StickyEstimateCTA() {
         (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 24px rgba(249,115,22,0.35)";
       }}
       style={{
-        bottom: "28px",
-        right: "24px",
+        bottom: "max(18px, calc(env(safe-area-inset-bottom) + 10px))",
+        right: "max(16px, calc(env(safe-area-inset-right) + 12px))",
         background: "#f97316",
         color: "#ffffff",
         borderRadius: "999px",
-        padding: "14px 22px",
+        padding: "13px 18px",
         display: "flex",
         alignItems: "center",
         gap: "8px",
@@ -41,11 +41,12 @@ export default function StickyEstimateCTA() {
         transform: visible ? "translateY(0)" : "translateY(12px)",
         fontFamily: "'Inter', sans-serif",
         fontWeight: 700,
-        fontSize: "13px",
+        fontSize: "12px",
         letterSpacing: "0.04em",
         textDecoration: "none",
         whiteSpace: "nowrap",
         transition: "opacity 0.3s, transform 0.3s, box-shadow 0.2s",
+        maxWidth: "calc(100vw - 32px)",
       }}
     >
       <svg
