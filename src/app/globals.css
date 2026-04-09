@@ -114,3 +114,57 @@ body {
 .animate-marquee-paused {
   animation-play-state: paused;
 }
+
+/* ─── Hero mobile behavior ─────────────────────────────────────────────── */
+
+@keyframes heroFade {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  6% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+  24% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+  31% {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+}
+
+.hero-slide {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+@media (max-width: 640px) {
+  .hero-cta-group {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .hero-cta-primary,
+  .hero-cta-secondary {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .hero-trust-line {
+    display: none;
+  }
+
+  .hero-trust-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+}
