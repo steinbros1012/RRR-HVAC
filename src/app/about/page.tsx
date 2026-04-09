@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyEstimateCTA from "@/components/StickyEstimateCTA";
@@ -87,44 +88,50 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div
-                className="p-8 sm:p-10"
-                style={{ background: "#111111", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "1rem" }}
-              >
-                <div className="mb-6">
-                  <div
-                    className="font-mono uppercase mb-1"
-                    style={{ fontSize: "10px", letterSpacing: "0.18em", color: "#64748B" }}
-                  >
-                    Owner &amp; Lead Technician
-                  </div>
-                  <div
-                    className="font-serif leading-none"
-                    style={{ fontSize: "2rem", color: "#FFFFFF", fontStyle: "italic" }}
-                  >
-                    Mike
-                  </div>
-                  <div
-                    className="font-mono uppercase mt-1"
-                    style={{ fontSize: "10px", letterSpacing: "0.1em", color: "#F97316" }}
-                  >
-                    RRR HVAC Rescue LLC
+              <div className="flex flex-col gap-4">
+                {/* Photo */}
+                <div style={{ position: "relative", overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)" }}>
+                  <Image
+                    src="/mike-and-wife.png"
+                    alt="Mike — Owner of RRR HVAC Rescue LLC"
+                    width={800}
+                    height={600}
+                    style={{ width: "100%", height: "360px", objectFit: "cover", objectPosition: "center top", display: "block" }}
+                  />
+                  <div style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    padding: "1.25rem 1.5rem",
+                    background: "linear-gradient(to top, rgba(8,8,8,0.92) 0%, transparent 100%)",
+                  }}>
+                    <div className="font-serif" style={{ fontSize: "1.25rem", color: "#FFFFFF", fontStyle: "italic" }}>Mike</div>
+                    <div className="font-mono uppercase" style={{ fontSize: "10px", letterSpacing: "0.14em", color: "#F97316", marginTop: "2px" }}>
+                      Owner &amp; Lead Technician — RRR HVAC Rescue LLC
+                    </div>
                   </div>
                 </div>
-                <div className="h-px mb-6" style={{ background: "rgba(255,255,255,0.08)" }} />
-                <ul className="space-y-3">
-                  {credentials.map((c) => (
-                    <li key={c} className="flex items-center gap-3">
-                      <div
-                        className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                        style={{ background: "#F97316" }}
-                      />
-                      <span className="font-body text-sm" style={{ color: "#E2E8F0" }}>
-                        {c}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+
+                {/* Credentials */}
+                <div
+                  className="p-6 sm:p-8"
+                  style={{ background: "#111111", border: "1px solid rgba(255,255,255,0.08)" }}
+                >
+                  <ul className="space-y-3">
+                    {credentials.map((c) => (
+                      <li key={c} className="flex items-center gap-3">
+                        <div
+                          className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                          style={{ background: "#F97316" }}
+                        />
+                        <span className="font-body text-sm" style={{ color: "#E2E8F0" }}>
+                          {c}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
