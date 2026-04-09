@@ -282,16 +282,17 @@ export default function ServicesPage() {
               {promos.map((promo) => (
                 <div
                   key={promo.title}
-                  className="flex flex-col sm:flex-row"
+                  className="flex flex-col"
                   style={{ background: "#111111", border: "1px solid rgba(255,255,255,0.07)" }}
                 >
                   <div
                     style={{
-                      width: "100%",
-                      maxWidth: "180px",
-                      minHeight: "160px",
-                      flexShrink: 0,
-                      overflow: "hidden",
+                      background: "#0a0a0a",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      padding: "1.5rem",
+                      borderBottom: "1px solid rgba(255,255,255,0.07)",
                     }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -300,10 +301,10 @@ export default function ServicesPage() {
                       alt={promo.title}
                       style={{
                         width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
+                        maxWidth: "340px",
+                        height: "auto",
+                        objectFit: "contain",
                         display: "block",
-                        minHeight: "160px",
                       }}
                     />
                   </div>
