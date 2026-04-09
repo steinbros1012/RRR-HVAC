@@ -96,7 +96,7 @@ export default function AboutPage() {
                     alt="Mike — Owner of RRR HVAC Rescue LLC"
                     width={800}
                     height={600}
-                    style={{ width: "100%", height: "360px", objectFit: "cover", objectPosition: "center top", display: "block" }}
+                    style={{ width: "100%", height: "360px", objectFit: "cover", objectPosition: "center 80%", display: "block" }}
                   />
                   <div style={{
                     position: "absolute",
