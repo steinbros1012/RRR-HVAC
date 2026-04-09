@@ -44,7 +44,7 @@ export default function Hero() {
 
     const interval = window.setInterval(() => {
       setActiveImage((current) => (current + 1) % HERO_IMAGES.length);
-    }, 5200);
+    }, 3500);
 
     return () => window.clearInterval(interval);
   }, [prefersReducedMotion]);
