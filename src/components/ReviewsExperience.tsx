@@ -121,10 +121,10 @@ export default function ReviewsExperience({ reviews }: { reviews: Review[] }) {
 
         {/* Grid of remaining reviews */}
         <div
-          className="grid sm:grid-cols-2 xl:grid-cols-3"
+          className="grid sm:grid-cols-2"
           style={{ gap: "1px", background: "rgba(255,255,255,0.07)" }}
         >
-          {rest.map((review) => (
+          {rest.map((review, i) => (
             <article
               key={review.name}
               style={{
@@ -133,6 +133,7 @@ export default function ReviewsExperience({ reviews }: { reviews: Review[] }) {
                 display: "flex",
                 flexDirection: "column",
                 gap: "1.5rem",
+                gridColumn: i === rest.length - 1 && rest.length % 2 !== 0 ? "1 / -1" : undefined,
               }}
             >
               <Stars size={12} />
