@@ -68,27 +68,28 @@ export default function ReviewsTeaser() {
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3" style={{ gap: "2px" }}>
+        <div className="grid md:grid-cols-3" style={{ gap: "1px", border: "1px solid rgba(255,255,255,0.08)" }}>
           {featured.map((r) => (
             <div
               key={r.name}
               style={{
-                background: "#FFFFFF",
-                padding: "2rem",
+                background: "#111111",
+                padding: "2.25rem",
                 display: "flex",
                 flexDirection: "column",
-                gap: "1.25rem",
+                gap: "1.5rem",
+                borderRight: "1px solid rgba(255,255,255,0.08)",
               }}
             >
               <Stars />
-              <p className="font-body" style={{ fontSize: "0.9375rem", color: "#374151", lineHeight: 1.7, flex: 1 }}>
+              <p className="font-body" style={{ fontSize: "0.9375rem", color: "#CBD5E1", lineHeight: 1.75, flex: 1 }}>
                 &ldquo;{r.text}&rdquo;
               </p>
-              <div style={{ borderTop: "1px solid rgba(0,0,0,0.08)", paddingTop: "1rem" }}>
-                <div className="font-body" style={{ fontSize: "0.875rem", fontWeight: 600, color: "#111827", marginBottom: "2px" }}>
+              <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "1.25rem" }}>
+                <div className="font-body" style={{ fontSize: "0.875rem", fontWeight: 600, color: "#FFFFFF", marginBottom: "3px" }}>
                   {r.name}
                 </div>
-                <div className="font-mono" style={{ fontSize: "10px", letterSpacing: "0.08em", color: "#6B7280" }}>
+                <div className="font-mono" style={{ fontSize: "10px", letterSpacing: "0.12em", color: "#475569", textTransform: "uppercase" }}>
                   {r.location}
                 </div>
               </div>
